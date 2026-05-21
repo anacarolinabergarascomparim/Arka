@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARKA Comunicação - Marketing Digital com Resultado Real</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#2B7DE9',
+                            light: '#4B96F8',
+                            dark: '#1A5BB0',
+                            bg: '#F5F9FF'
+                        },
+                        dark: '#0F172A'
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'blue': '0 10px 25px -5px rgba(43, 125, 233, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Gradientes de fundo dinâmicos baseados nos prints */
+        .bg-mesh {
+            background-color: #85FFD3;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(190, 100%, 76%, 1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(280, 100%, 84%, 1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(210, 100%, 75%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(160, 100%, 80%, 1) 0px, transparent 50%);
+        }
+        
+        .bg-mesh-light {
+            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+        }
+
+        .bg-mesh-footer {
+            background: linear-gradient(180deg, #FFFFFF 0%, #E0F2FE 50%, #85FFD3 100%);
+        }
+
+        /* Estilização nativa do accordion (FAQ) */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; margin-top: -10px}
+            100%  {opacity: 1; margin-top: 0px}
+        }
+
+        /* Animação flutuante para ícones decorativos */
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- WhatsApp Flutuante -->
+    <a href="#" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg z-50 hover:scale-110 transition-transform flex items-center justify-center">
+        <i class="ph ph-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="absolute w-full z-40 top-0 py-6 px-6 lg:px-20 flex justify-between items-center">
+        <!-- Logo Falsa (Texto estilizado) -->
+        <div class="flex items-center gap-1">
+            <div class="text-3xl font-black font-heading tracking-tighter">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-brand-blue to-teal-400">ARKA</span>
+            </div>
+            <div class="text-[10px] text-orange-400 font-bold tracking-widest mt-4 -ml-12 uppercase">Comunicação</div>
+        </div>
+
+        <!-- Links Desktop -->
+        <div class="hidden lg:flex gap-8 font-medium text-dark/80">
+            <a href="#sobre" class="hover:text-brand-blue transition-colors">Sobre</a>
+            <a href="#servicos" class="hover:text-brand-blue transition-colors">Serviços</a>
+            <a href="#caso-real" class="hover:text-brand-blue transition-colors">Caso Real</a>
+            <a href="#avaliacoes" class="hover:text-brand-blue transition-colors">Avaliações</a>
+            <a href="#faq" class="hover:text-brand-blue transition-colors">Faq</a>
+        </div>
+
+        <!-- Botão -->
+        <a href="#" class="hidden lg:block border border-gray-300 bg-white/80 backdrop-blur-sm px-6 py-2.5 rounded-full font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all">
+            Falar com especialista
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-dark">
+            <i class="ph ph-list"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden flex-col items-center justify-center gap-6 text-xl font-medium">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl"><i class="ph ph-x"></i></button>
+        <a href="#sobre" class="mobile-link">Sobre</a>
+        <a href="#servicos" class="mobile-link">Serviços</a>
+        <a href="#caso-real" class="mobile-link">Caso Real</a>
+        <a href="#avaliacoes" class="mobile-link">Avaliações</a>
+        <a href="#faq" class="mobile-link">Faq</a>
+        <a href="#" class="mt-4 bg-brand-blue text-white px-8 py-3 rounded-full">Falar com especialista</a>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="relative min-h-screen bg-mesh pt-32 pb-20 px-6 lg:px-20 flex flex-col lg:flex-row items-center overflow-hidden" id="sobre">
+        
+        <!-- Elementos decorativos flutuantes -->
+        <div class="absolute top-1/4 left-10 bg-red-500/20 w-12 h-12 rounded-full blur-xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 float-anim z-10 text-4xl"><i class="ph-fill ph-chat-teardrop-text text-blue-500"></i></div>
+        <div class="absolute top-1/3 right-1/2 float-anim z-10 text-5xl" style="animation-delay: 2s;"><i class="ph-fill ph-heart text-pink-500"></i></div>
+
+        <!-- Conteúdo Esquerda -->
+        <div class="w-full lg:w-1/2 relative z-20 max-w-2xl">
+            <h1 class="font-heading text-5xl lg:text-6xl font-bold text-dark leading-[1.1] mb-6">
+                Marketing Digital com Resultado Real, Não Achismo
+            </h1>
+            <p class="text-lg text-dark/80 mb-10 max-w-md">
+                A ARKA é uma agência que nasceu dentro de empresas reais, enfrentando desafios reais. Por isso entrega estratégias testadas que escalam negócios de verdade.
+            </p>
+            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-4 rounded-xl shadow-blue hover:bg-brand-dark transition-colors">
+                Quero crescer com marketing <i class="ph ph-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Imagem Direita -->
+        <div class="w-full lg:w-1/2 relative z-10 mt-16 lg:mt-0 flex justify-center lg:justify-end">
+            <!-- Circulo Roxo Fundo -->
+            <div class="absolute w-80 h-80 lg:w-[450px] lg:h-[450px] bg-purple-600 rounded-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:right-10 z-0"></div>
+            <!-- Setas decorativas (simuladas com CSS) -->
+            <div class="absolute w-64 h-64 border-t-[12px] border-r-[12px] border-orange-300 rounded-tr-[40px] top-10 right-20 z-0 opacity-80 transform rotate-12"></div>
+            
+            <!-- Imagem do Homem -->
+            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional de Marketing" class="relative z-10 object-cover object-top w-[350px] lg:w-[500px] h-[400px] lg:h-[600px] grayscale contrast-125 brightness-110 mix-blend-multiply" style="mask-image: linear-gradient(to top, transparent 0%, black 15%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);">
+        </div>
+
+        <!-- Seta pra baixo -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 bg-teal-400 text-white w-16 h-8 rounded-t-full flex items-center justify-center">
+            <i class="ph ph-caret-down text-xl"></i>
+        </div>
+    </section>
+
+    <!-- 2. Pain Points Section -->
+    <section class="py-24 px-6 lg:px-20 bg-white relative">
+        <div class="max-w-4xl mx-auto text-center mb-16 relative z-10">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
+                Você já investiu em marketing. <br> <span class="font-bold">Só não viu o retorno.</span>
+            </h2>
+            <p class="text-gray-500 text-lg">Cansado de se identificar com isso?</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 relative z-10">
+            <!-- Box 1 -->
+            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
+                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+                <span class="text-dark font-medium">Campanhas bonitas, mas sem cliente novo</span>
+            </div>
+            <!-- Box 2 -->
+            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
+                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+                <span class="text-dark font-medium">Poucas vendas, leads desqualificados</span>
+            </div>
+            <!-- Box 3 -->
+            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
+                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+                <span class="text-dark font-medium">Posts no Instagram que ninguém comenta</span>
+            </div>
+            <!-- Box 4 -->
+            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
+                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+                <span class="text-dark font-medium">Anúncios rodando no escuro, sem saber o que traz resultado</span>
+            </div>
+            <!-- Box 5 -->
+            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
+                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+                <span class="text-dark font-medium">Falta de previsibilidade e clareza</span>
+            </div>
+            <!-- Box 6 -->
+            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
+                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+                <span class="text-dark font-medium">Agência que some depois do briefing</span>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto text-center mt-16 relative z-10">
+            <h3 class="font-heading text-2xl font-bold text-brand-blue mb-2">"Já tentei e não funcionou!"</h3>
+            <p class="text-gray-500 mb-8">Sim, a gente ouve isso todo dia. E por isso a forma como trabalhamos é diferente.</p>
+            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-3 rounded-lg shadow-blue hover:bg-brand-dark transition-colors">
+                Quero entender como funciona <i class="ph ph-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. How We Work / Metodologia -->
+    <section class="py-24 px-6 lg:px-20 bg-mesh relative" id="metodologia">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
+                Somos <span class="font-bold">especialistas</span> em uma coisa:<br> <span class="font-bold">fazer o marketing funcionar de verdade</span>
+            </h2>
+            <p class="text-dark/70 text-lg">Sem fórmulas mágicas. Sem promessas de viralizar.<br>Só estratégia, execução e resultado.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+            <!-- Lista -->
+            <div class="w-full lg:w-1/2 flex flex-col gap-4">
+                <div class="bg-white/90 backdrop-blur rounded-xl p-5 flex items-center gap-4 shadow-sm border-l-4 border-brand-blue">
+                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                        <i class="ph-bold ph-check"></i>
+                    </div>
+                    <span class="font-medium text-dark">Diagnóstico estratégico do seu negócio</span>
+                </div>
+                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
+                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                        <i class="ph-bold ph-check"></i>
+                    </div>
+                    <span class="font-medium text-dark">Planejamento baseado em dados e metas</span>
+                </div>
+                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
+                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                        <i class="ph-bold ph-check"></i>
+                    </div>
+                    <span class="font-medium text-dark">Execução integrada: tráfego, conteúdo, design, SEO</span>
+                </div>
+                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
+                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                        <i class="ph-bold ph-check"></i>
+                    </div>
+                    <span class="font-medium text-dark">Acompanhamento constante</span>
+                </div>
+                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
+                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                        <i class="ph-bold ph-check"></i>
+                    </div>
+                    <span class="font-medium text-dark">Expansão conforme os números crescem</span>
+                </div>
+            </div>
+
+            <!-- Imagem Equipe -->
+            <div class="w-full lg:w-1/2 relative">
+                <div class="bg-white p-4 rounded-2xl shadow-xl rotate-2 relative z-10">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe trabalhando" class="rounded-xl grayscale contrast-125 opacity-80">
+                    <!-- Elementos gráficos por cima da foto simulando o recorte de papel do print -->
+                    <div class="absolute inset-0 bg-blue-600 mix-blend-overlay opacity-30 rounded-xl"></div>
+                </div>
+                <!-- Sombra decorativa colorida -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-purple-500 to-orange-400 blur-xl opacity-30 -z-10 transform -rotate-6"></div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-16 text-dark/80 font-medium">
+            Você tem um negócio. Nós temos o marketing certo pra ele crescer.
+        </div>
+    </section>
+
+    <!-- 4. Services Grid Section -->
+    <section class="py-24 px-6 lg:px-20 bg-gray-50" id="servicos">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 font-semibold">
+                Marketing Digital Completo para<br> Escalar Negócios Locais e Nacionais
+            </h2>
+            <p class="text-gray-500 text-lg">Nossos serviços atendem empresas que querem<br> crescer com estratégia e previsibilidade:</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
+                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <i class="ph-bold ph-trend-up text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-dark text-xl mb-3">Gestão de Tráfego Pago</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Google Ads, Meta Ads, TikTok Ads e LinkedIn. Campanhas otimizadas pra gerar leads qualificados e vendas.</p>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
+                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <i class="ph-bold ph-magnifying-glass text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-dark text-xl mb-3">SEO e Inbound Marketing</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Posicionamento orgânico no Google e nutrição inteligente dos seus leads.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
+                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <i class="ph-bold ph-share-network text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-dark text-xl mb-3">Gestão de Redes Sociais e Conteúdo</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Planejamento, produção e calendário com foco em autoridade e engajamento real.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
+                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <i class="ph-bold ph-bezier-curve text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-dark text-xl mb-3">Design e Branding</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Criação visual estratégica para fortalecer sua marca e conversão.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
+                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <i class="ph-bold ph-browser text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-dark text-xl mb-3">Landing Pages e Sites de Alta Performance</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Desenvolvimento 100% focado em conversão, com UX, copy e design alinhados.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
+                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <i class="ph-bold ph-funnel text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-dark text-xl mb-3">Funil de Vendas e Apoio Comercial</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Vamos além do marketing. Ajudamos na estrutura que converte.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Experience / Credentials Section -->
+    <section class="py-24 px-6 lg:px-20 bg-white" id="caso-real">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
+                Experiência prática que já gerou<br> <span class="font-bold">resultado</span> pra mais de 40 empresas
+            </h2>
+        </div>
+
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 items-stretch">
+            <!-- Left Card (Depoimento Principal) -->
+            <div class="w-full lg:w-5/12 bg-gray-900 rounded-3xl overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carlos D." class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity">
+                <div class="relative z-10 p-8 h-full flex flex-col justify-between min-h-[400px]">
+                    <p class="text-white text-xl font-medium leading-relaxed">
+                        "A ARKA mudou a forma como eu enxergo marketing. Agora cada real investido tem retorno."
+                    </p>
+                    <div>
+                        <h4 class="text-white font-bold text-2xl">Carlos D.</h4>
+                        <p class="text-gray-300 text-sm">CEO de e-commerce</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right List (Credenciais) -->
+            <div class="w-full lg:w-7/12 flex flex-col gap-4 justify-center">
+                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-bold ph-medal text-2xl"></i>
+                    </div>
+                    <span class="text-dark font-medium">Mais de 10 anos atuando em negócios reais</span>
+                </div>
+                
+                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-bold ph-certificate text-2xl"></i>
+                    </div>
+                    <span class="text-dark font-medium">Especialistas certificados por Google, Meta, RD Station, HubSpot</span>
+                </div>
+
+                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-bold ph-users text-2xl"></i>
+                    </div>
+                    <span class="text-dark font-medium">Experiência com e-commerce, consultorias, techs e mobilidade</span>
+                </div>
+
+                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-bold ph-stack text-2xl"></i>
+                    </div>
+                    <span class="text-dark font-medium">Conhecimento aplicado em operações próprias e de terceiros</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Testimonials Section -->
+    <section class="py-24 px-6 lg:px-20 bg-mesh" id="avaliacoes">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
+                O que os <span class="font-bold">clientes<br> dizem</span> sobre a ARKA?
+            </h2>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Review 1 -->
+            <div class="bg-white/90 backdrop-blur rounded-2xl p-8 shadow-sm">
+                <div class="flex gap-1 text-yellow-400 mb-4 text-xl">
+                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                </div>
+                <p class="text-gray-600 italic mb-8 min-h-[80px]">
+                    "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Renata C." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-sm text-dark">Renata C.</h4>
+                            <p class="text-xs text-gray-500">38 anos</p>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-5 h-5">
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-white/90 backdrop-blur rounded-2xl p-8 shadow-sm">
+                <div class="flex gap-1 text-yellow-400 mb-4 text-xl">
+                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                </div>
+                <p class="text-gray-600 italic mb-8 min-h-[80px]">
+                    "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Julia B." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-sm text-dark">Julia B.</h4>
+                            <p class="text-xs text-gray-500">31 anos</p>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-5 h-5">
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-white/90 backdrop-blur rounded-2xl p-8 shadow-sm">
+                <div class="flex gap-1 text-yellow-400 mb-4 text-xl">
+                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                </div>
+                <p class="text-gray-600 italic mb-8 min-h-[80px]">
+                    "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Marina R." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-sm text-dark">Marina R.</h4>
+                            <p class="text-xs text-gray-500">35 anos</p>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-5 h-5">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-3 rounded-lg shadow-blue hover:bg-brand-dark transition-colors">
+                <i class="ph ph-whatsapp text-xl"></i> Solicitar um orçamento <i class="ph ph-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 7. Objections & Free Analysis Banner -->
+    <section class="py-24 px-6 lg:px-20 bg-white">
+        <div class="max-w-4xl mx-auto text-center mb-10">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
+                "Mas será que <span class="font-bold">agora vai funcionar?</span>"
+            </h2>
+            <p class="text-gray-500 text-lg">Sabemos o que passa na sua cabeça:</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-4 mb-16">
+            <div class="flex-1 border border-brand-light/30 rounded-xl p-5 flex items-center justify-center gap-3 bg-white shadow-sm text-center">
+                <i class="ph ph-x text-red-500 text-lg font-bold"></i>
+                <span class="text-dark font-medium text-sm">Já tentei antes e não deu certo</span>
+            </div>
+            <div class="flex-1 border border-brand-light/30 rounded-xl p-5 flex items-center justify-center gap-3 bg-white shadow-sm text-center">
+                <i class="ph ph-x text-red-500 text-lg font-bold"></i>
+                <span class="text-dark font-medium text-sm">Talvez ainda não seja o momento</span>
+            </div>
+            <div class="flex-1 border border-brand-light/30 rounded-xl p-5 flex items-center justify-center gap-3 bg-white shadow-sm text-center">
+                <i class="ph ph-x text-red-500 text-lg font-bold"></i>
+                <span class="text-dark font-medium text-sm">E se eu gastar e não tiver retorno?</span>
+            </div>
+        </div>
+
+        <!-- Big Banner -->
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-teal-300 via-blue-400 to-brand-blue rounded-[40px] p-12 text-center text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+                <h3 class="font-heading text-2xl lg:text-3xl mb-4">
+                    A gente entende. Por isso,<br>
+                    <span class="font-bold">o primeiro passo é gratuito e sem compromisso!</span>
+                </h3>
+                <p class="text-white/90 mb-8 max-w-lg mx-auto text-sm">
+                    A diferença entre um negócio estagnado e um em crescimento está na execução.
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 bg-brand-dark/90 hover:bg-brand-dark text-white font-medium px-8 py-3 rounded-lg transition-colors border border-white/20">
+                    Quero a análise gratuita da ARKA <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ Section -->
+    <section class="py-24 px-6 lg:px-20 bg-white" id="faq">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl lg:text-4xl text-dark font-bold mb-2">
+                    FAQ: Perguntas Frequentes
+                </h2>
+                <h3 class="text-2xl text-dark">sobre Marketing Digital Estratégico</h3>
+            </div>
+
+            <div class="flex flex-col gap-4 mb-10 faq-container">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden" open>
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+                        Quais empresas a ARKA atende?
+                        <span class="transition group-open:rotate-180 text-brand-blue">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                        Atendemos negócios locais e nacionais que buscam previsibilidade de vendas e crescimento estruturado. Não pegamos projetos sem viabilidade ou que prometem resultados irreais.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+                        Quanto tempo leva pra ver resultado?
+                        <span class="transition group-open:rotate-180 text-brand-blue">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                        O tempo varia de acordo com o segmento, orçamento e nível de maturidade digital da empresa, mas geralmente os primeiros sinais de melhora na qualidade dos leads acontecem logo nas primeiras semanas de otimização.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+                        A ARKA é uma agência de Sorocaba?
+                        <span class="transition group-open:rotate-180 text-brand-blue">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                        Nossa sede e raízes podem estar no interior de São Paulo, mas nossa operação e clientes estão espalhados por todo o Brasil. Atendemos com excelência independente da sua localização.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 4 -->
+                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+                        A consulta estratégica é realmente gratuita?
+                        <span class="transition group-open:rotate-180 text-brand-blue">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                        Sim. Acreditamos que antes de propor qualquer serviço, precisamos entender seu cenário. O primeiro papo é para diagnóstico e alinhamento, sem nenhum compromisso financeiro atrelado.
+                    </div>
+                </details>
+            </div>
+
+            <div class="text-center">
+                <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-3 rounded-lg shadow-blue hover:bg-brand-dark transition-colors">
+                    Falar com um especialista agora <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Final CTA -->
+    <section class="py-24 px-6 lg:px-20 bg-mesh-footer text-center relative overflow-hidden">
+        <!-- Ícone decorativo flutuante -->
+        <div class="absolute left-1/4 top-1/3 opacity-50 float-anim">
+            <i class="ph-outline ph-megaphone text-4xl text-white"></i>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-6">
+                Você pode continuar investindo no<br> escuro ou <span class="font-bold">começar a escalar com estratégia!</span>
+            </h2>
+            <p class="text-dark/80 font-medium mb-4">A ARKA está pronta pra construir isso com você!</p>
+            <p class="text-gray-600 text-sm mb-10">A diferença entre um negócio estagnado e um<br> em crescimento está na execução.</p>
+            
+            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-4 rounded-xl shadow-blue hover:bg-brand-dark transition-colors text-lg">
+                Solicitar diagnóstico gratuito agora <i class="ph ph-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer class="bg-white pt-16 pb-8 px-6 lg:px-20 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+            <!-- Coluna 1 -->
+            <div>
+                <!-- Logo -->
+                <div class="flex items-center gap-1 mb-4">
+                    <div class="text-3xl font-black font-heading tracking-tighter">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-brand-blue to-teal-400">ARKA</span>
+                    </div>
+                </div>
+                <h4 class="font-bold text-dark mb-4">ARKA COMUNICAÇÃO ESTRATÉGICA</h4>
+                <p class="text-sm text-gray-500 mb-4">CNPJ: 62.415.222/0001-22</p>
+                <p class="text-xs text-gray-400 leading-relaxed max-w-xs">
+                    Marketing Digital | Agência de Performance | Tráfego Pago | SEO | Gestão de Redes
+                </p>
+            </div>
+
+            <!-- Coluna 2 -->
+            <div>
+                <h4 class="font-bold text-dark mb-6 text-lg">Contato</h4>
+                <div class="flex flex-col gap-4 text-sm text-gray-600">
+                    <a href="#" class="flex items-center gap-2 hover:text-brand-blue transition-colors">
+                        <i class="ph ph-whatsapp text-lg text-brand-blue"></i> WhatsApp: (xx) xxxx-xxxx
+                    </a>
+                    <a href="mailto:contato@arka.com.br" class="flex items-center gap-2 hover:text-brand-blue transition-colors">
+                        <i class="ph ph-envelope-simple text-lg text-brand-blue"></i> contato@arka.com.br
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coluna 3 -->
+            <div>
+                <h4 class="font-bold text-dark mb-6 text-lg">Redes Sociais</h4>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition-colors">
+                        <i class="ph ph-instagram-logo text-xl"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition-colors">
+                        <i class="ph ph-facebook-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Linha inferior -->
+        <div class="max-w-6xl mx-auto border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+            <p>© 2026 ARKA Comunicação. Todos os direitos reservados.</p>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-brand-blue transition-colors">Termos de uso</a>
+                <span class="text-gray-300">|</span>
+                <a href="#" class="hover:text-brand-blue transition-colors">Política de privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts para interações -->
+    <script>
+        // Menu Mobile Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // FAQ Comportamento (Acordeão - fechar outros quando um abre)
+        const detailsElements = document.querySelectorAll('.faq-container details');
+        
+        detailsElements.forEach((targetDetail) => {
+            targetDetail.addEventListener('click', () => {
+                detailsElements.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

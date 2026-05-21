@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARKA Comunicação - Marketing Digital com Resultado Real</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,16 +22,18 @@
                     },
                     colors: {
                         brand: {
-                            blue: '#2B7DE9',
-                            light: '#4B96F8',
-                            dark: '#1A5BB0',
-                            bg: '#F5F9FF'
+                            blue: '#4F46E5', /* Indigo 600 */
+                            light: '#818CF8', /* Indigo 400 */
+                            dark: '#312E81', /* Indigo 900 */
+                            accent: '#06B6D4', /* Cyan 500 */
+                            bg: '#F8FAFC'
                         },
                         dark: '#0F172A'
                     },
                     boxShadow: {
-                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
-                        'blue': '0 10px 25px -5px rgba(43, 125, 233, 0.3)',
+                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'blue': '0 10px 25px -5px rgba(79, 70, 229, 0.4)',
+                        'hover': '0 25px 50px -12px rgba(0, 0, 0, 0.15)'
                     }
                 }
             }
@@ -42,25 +41,24 @@
     </script>
 
     <style>
-        /* Gradientes de fundo dinâmicos baseados nos prints */
+        /* Gradientes de fundo modernos e sofisticados */
         .bg-mesh {
-            background-color: #85FFD3;
+            background-color: #F8FAFC;
             background-image: 
-                radial-gradient(at 0% 0%, hsla(190, 100%, 76%, 1) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(280, 100%, 84%, 1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, hsla(210, 100%, 75%, 1) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, hsla(160, 100%, 80%, 1) 0px, transparent 50%);
-        }
-        
-        .bg-mesh-light {
-            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+                radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.15) 0px, transparent 50%);
         }
 
         .bg-mesh-footer {
-            background: linear-gradient(180deg, #FFFFFF 0%, #E0F2FE 50%, #85FFD3 100%);
+            background-color: #0F172A;
+            background-image: 
+                radial-gradient(at 0% 100%, rgba(79, 70, 229, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.3) 0px, transparent 50%);
         }
 
-        /* Estilização nativa do accordion (FAQ) */
+        /* Estilização nativa do accordion (FAQ) com transição suave */
         details > summary {
             list-style: none;
         }
@@ -68,43 +66,49 @@
             display: none;
         }
         details[open] summary ~ * {
-            animation: sweep .3s ease-in-out;
+            animation: sweep .4s ease-in-out;
         }
         @keyframes sweep {
-            0%    {opacity: 0; margin-top: -10px}
-            100%  {opacity: 1; margin-top: 0px}
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0px)}
         }
 
         /* Animação flutuante para ícones decorativos */
         .float-anim {
             animation: float 6s ease-in-out infinite;
         }
+        .float-anim-delayed {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 3s;
+        }
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
             100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Máscara de imagem suave */
+        .image-mask {
+            mask-image: linear-gradient(to top, transparent 5%, black 25%);
+            -webkit-mask-image: linear-gradient(to top, transparent 5%, black 25%);
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased overflow-x-hidden">
+<body class="font-sans text-gray-700 antialiased overflow-x-hidden selection:bg-brand-blue selection:text-white">
 
-    <!-- WhatsApp Flutuante -->
-    <a href="#" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg z-50 hover:scale-110 transition-transform flex items-center justify-center">
-        <i class="ph ph-whatsapp text-3xl"></i>
+    <a href="#" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg z-50 hover:scale-110 hover:shadow-xl transition-all duration-300 flex items-center justify-center group">
+        <i class="ph ph-whatsapp text-3xl group-hover:animate-pulse"></i>
     </a>
 
-    <!-- Navbar -->
     <nav class="absolute w-full z-40 top-0 py-6 px-6 lg:px-20 flex justify-between items-center">
-        <!-- Logo Falsa (Texto estilizado) -->
-        <div class="flex items-center gap-1">
-            <div class="text-3xl font-black font-heading tracking-tighter">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-brand-blue to-teal-400">ARKA</span>
+        <div class="flex flex-col justify-center">
+            <div class="text-3xl font-black font-heading tracking-tighter leading-none">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-accent">ARKA</span>
             </div>
-            <div class="text-[10px] text-orange-400 font-bold tracking-widest mt-4 -ml-12 uppercase">Comunicação</div>
+            <div class="text-[9px] text-gray-500 font-bold tracking-[0.2em] uppercase mt-1">Comunicação</div>
         </div>
 
-        <!-- Links Desktop -->
-        <div class="hidden lg:flex gap-8 font-medium text-dark/80">
+        <div class="hidden lg:flex gap-8 font-medium text-dark/80 bg-white/40 backdrop-blur-md px-8 py-3 rounded-full border border-white/50 shadow-sm">
             <a href="#sobre" class="hover:text-brand-blue transition-colors">Sobre</a>
             <a href="#servicos" class="hover:text-brand-blue transition-colors">Serviços</a>
             <a href="#caso-real" class="hover:text-brand-blue transition-colors">Caso Real</a>
@@ -112,567 +116,553 @@
             <a href="#faq" class="hover:text-brand-blue transition-colors">Faq</a>
         </div>
 
-        <!-- Botão -->
-        <a href="#" class="hidden lg:block border border-gray-300 bg-white/80 backdrop-blur-sm px-6 py-2.5 rounded-full font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all">
+        <a href="#" class="hidden lg:block bg-dark text-white px-6 py-2.5 rounded-full font-medium hover:bg-brand-blue hover:shadow-blue transition-all duration-300">
             Falar com especialista
         </a>
 
-        <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-dark">
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-dark p-2 bg-white/50 backdrop-blur rounded-lg">
             <i class="ph ph-list"></i>
         </button>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden flex-col items-center justify-center gap-6 text-xl font-medium">
-        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl"><i class="ph ph-x"></i></button>
-        <a href="#sobre" class="mobile-link">Sobre</a>
-        <a href="#servicos" class="mobile-link">Serviços</a>
-        <a href="#caso-real" class="mobile-link">Caso Real</a>
-        <a href="#avaliacoes" class="mobile-link">Avaliações</a>
-        <a href="#faq" class="mobile-link">Faq</a>
-        <a href="#" class="mt-4 bg-brand-blue text-white px-8 py-3 rounded-full">Falar com especialista</a>
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-50 hidden flex-col items-center justify-center gap-6 text-xl font-medium transition-opacity">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-dark p-2"><i class="ph ph-x"></i></button>
+        <a href="#sobre" class="mobile-link text-dark hover:text-brand-blue">Sobre</a>
+        <a href="#servicos" class="mobile-link text-dark hover:text-brand-blue">Serviços</a>
+        <a href="#caso-real" class="mobile-link text-dark hover:text-brand-blue">Caso Real</a>
+        <a href="#avaliacoes" class="mobile-link text-dark hover:text-brand-blue">Avaliações</a>
+        <a href="#faq" class="mobile-link text-dark hover:text-brand-blue">Faq</a>
+        <a href="#" class="mt-4 bg-brand-blue text-white px-8 py-3 rounded-full shadow-blue">Falar com especialista</a>
     </div>
 
-    <!-- 1. Hero Section -->
     <section class="relative min-h-screen bg-mesh pt-32 pb-20 px-6 lg:px-20 flex flex-col lg:flex-row items-center overflow-hidden" id="sobre">
         
-        <!-- Elementos decorativos flutuantes -->
-        <div class="absolute top-1/4 left-10 bg-red-500/20 w-12 h-12 rounded-full blur-xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 float-anim z-10 text-4xl"><i class="ph-fill ph-chat-teardrop-text text-blue-500"></i></div>
-        <div class="absolute top-1/3 right-1/2 float-anim z-10 text-5xl" style="animation-delay: 2s;"><i class="ph-fill ph-heart text-pink-500"></i></div>
+        <div class="absolute top-1/4 left-10 bg-brand-accent/20 w-16 h-16 rounded-full blur-2xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 float-anim z-10 text-4xl opacity-80"><i class="ph-fill ph-rocket-launch text-brand-blue"></i></div>
+        <div class="absolute top-1/3 right-1/2 float-anim-delayed z-10 text-5xl opacity-80"><i class="ph-fill ph-chart-line-up text-brand-accent"></i></div>
 
-        <!-- Conteúdo Esquerda -->
         <div class="w-full lg:w-1/2 relative z-20 max-w-2xl">
-            <h1 class="font-heading text-5xl lg:text-6xl font-bold text-dark leading-[1.1] mb-6">
-                Marketing Digital com Resultado Real, Não Achismo
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-semibold mb-6 border border-brand-blue/20">
+                <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+                Estratégia de ponta a ponta
+            </div>
+            <h1 class="font-heading text-5xl lg:text-6xl font-black text-dark leading-[1.15] mb-6 tracking-tight">
+                Marketing Digital com <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-accent">Resultado Real</span>, Não Achismo
             </h1>
-            <p class="text-lg text-dark/80 mb-10 max-w-md">
+            <p class="text-lg text-gray-600 mb-10 max-w-lg leading-relaxed">
                 A ARKA é uma agência que nasceu dentro de empresas reais, enfrentando desafios reais. Por isso entrega estratégias testadas que escalam negócios de verdade.
             </p>
-            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-4 rounded-xl shadow-blue hover:bg-brand-dark transition-colors">
-                Quero crescer com marketing <i class="ph ph-arrow-right"></i>
+            <a href="#" class="group inline-flex items-center gap-3 bg-brand-blue text-white font-medium px-8 py-4 rounded-full shadow-blue hover:bg-brand-dark hover:-translate-y-1 transition-all duration-300">
+                Quero crescer com marketing 
+                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </a>
         </div>
 
-        <!-- Imagem Direita -->
         <div class="w-full lg:w-1/2 relative z-10 mt-16 lg:mt-0 flex justify-center lg:justify-end">
-            <!-- Circulo Roxo Fundo -->
-            <div class="absolute w-80 h-80 lg:w-[450px] lg:h-[450px] bg-purple-600 rounded-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:right-10 z-0"></div>
-            <!-- Setas decorativas (simuladas com CSS) -->
-            <div class="absolute w-64 h-64 border-t-[12px] border-r-[12px] border-orange-300 rounded-tr-[40px] top-10 right-20 z-0 opacity-80 transform rotate-12"></div>
+            <div class="absolute w-[300px] h-[300px] lg:w-[480px] lg:h-[480px] bg-gradient-to-br from-brand-blue/30 to-brand-accent/30 rounded-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:right-10 z-0 blur-3xl"></div>
             
-            <!-- Imagem do Homem -->
-            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional de Marketing" class="relative z-10 object-cover object-top w-[350px] lg:w-[500px] h-[400px] lg:h-[600px] grayscale contrast-125 brightness-110 mix-blend-multiply" style="mask-image: linear-gradient(to top, transparent 0%, black 15%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);">
+            <div class="absolute w-48 h-48 top-10 right-20 z-0 opacity-20" style="background-image: radial-gradient(#4F46E5 2px, transparent 2px); background-size: 16px 16px;"></div>
+            
+            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional de Marketing" class="relative z-10 object-cover object-top w-[350px] lg:w-[500px] h-[450px] lg:h-[650px] grayscale contrast-125 mix-blend-multiply image-mask">
         </div>
 
-        <!-- Seta pra baixo -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 bg-teal-400 text-white w-16 h-8 rounded-t-full flex items-center justify-center">
-            <i class="ph ph-caret-down text-xl"></i>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white text-dark w-16 h-10 rounded-t-2xl flex items-center justify-center shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+            <i class="ph ph-caret-down text-2xl animate-bounce mt-2 text-brand-blue"></i>
         </div>
     </section>
 
-    <!-- 2. Pain Points Section -->
     <section class="py-24 px-6 lg:px-20 bg-white relative">
         <div class="max-w-4xl mx-auto text-center mb-16 relative z-10">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
-                Você já investiu em marketing. <br> <span class="font-bold">Só não viu o retorno.</span>
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
+                Você já investiu em marketing.<br> <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Só não viu o retorno.</span>
             </h2>
             <p class="text-gray-500 text-lg">Cansado de se identificar com isso?</p>
         </div>
 
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 relative z-10">
-            <!-- Box 1 -->
-            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
-                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </div>
                 <span class="text-dark font-medium">Campanhas bonitas, mas sem cliente novo</span>
             </div>
-            <!-- Box 2 -->
-            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
-                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </div>
                 <span class="text-dark font-medium">Poucas vendas, leads desqualificados</span>
             </div>
-            <!-- Box 3 -->
-            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
-                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </div>
                 <span class="text-dark font-medium">Posts no Instagram que ninguém comenta</span>
             </div>
-            <!-- Box 4 -->
-            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
-                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </div>
                 <span class="text-dark font-medium">Anúncios rodando no escuro, sem saber o que traz resultado</span>
             </div>
-            <!-- Box 5 -->
-            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
-                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </div>
                 <span class="text-dark font-medium">Falta de previsibilidade e clareza</span>
             </div>
-            <!-- Box 6 -->
-            <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-4 bg-white shadow-sm">
-                <i class="ph ph-x text-red-500 text-xl font-bold"></i>
+            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </div>
                 <span class="text-dark font-medium">Agência que some depois do briefing</span>
             </div>
         </div>
 
         <div class="max-w-2xl mx-auto text-center mt-16 relative z-10">
-            <h3 class="font-heading text-2xl font-bold text-brand-blue mb-2">"Já tentei e não funcionou!"</h3>
-            <p class="text-gray-500 mb-8">Sim, a gente ouve isso todo dia. E por isso a forma como trabalhamos é diferente.</p>
-            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-3 rounded-lg shadow-blue hover:bg-brand-dark transition-colors">
-                Quero entender como funciona <i class="ph ph-arrow-right"></i>
+            <h3 class="font-heading text-2xl font-bold text-brand-dark mb-3">"Já tentei e não funcionou!"</h3>
+            <p class="text-gray-500 mb-8 text-lg">Sim, a gente ouve isso todo dia. E por isso a forma como trabalhamos é diferente.</p>
+            <a href="#metodologia" class="inline-flex items-center gap-2 bg-white text-brand-dark border-2 border-brand-dark font-semibold px-8 py-3 rounded-full hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                Quero entender como funciona <i class="ph ph-arrow-down"></i>
             </a>
         </div>
     </section>
 
-    <!-- 3. How We Work / Metodologia -->
     <section class="py-24 px-6 lg:px-20 bg-mesh relative" id="metodologia">
         <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
-                Somos <span class="font-bold">especialistas</span> em uma coisa:<br> <span class="font-bold">fazer o marketing funcionar de verdade</span>
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
+                Somos <span class="font-black text-brand-blue">especialistas</span> em uma coisa:<br> <span class="font-bold">fazer o marketing funcionar de verdade</span>
             </h2>
-            <p class="text-dark/70 text-lg">Sem fórmulas mágicas. Sem promessas de viralizar.<br>Só estratégia, execução e resultado.</p>
+            <p class="text-gray-600 text-lg">Sem fórmulas mágicas. Sem promessas de viralizar.<br>Só estratégia, execução e resultado.</p>
         </div>
 
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-            <!-- Lista -->
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
             <div class="w-full lg:w-1/2 flex flex-col gap-4">
-                <div class="bg-white/90 backdrop-blur rounded-xl p-5 flex items-center gap-4 shadow-sm border-l-4 border-brand-blue">
-                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <div class="bg-white rounded-2xl p-5 flex items-center gap-5 shadow-soft border-l-4 border-brand-blue transform hover:translate-x-2 transition-transform duration-300">
+                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
                         <i class="ph-bold ph-check"></i>
                     </div>
                     <span class="font-medium text-dark">Diagnóstico estratégico do seu negócio</span>
                 </div>
-                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
-                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
+                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
                         <i class="ph-bold ph-check"></i>
                     </div>
                     <span class="font-medium text-dark">Planejamento baseado em dados e metas</span>
                 </div>
-                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
-                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
+                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
                         <i class="ph-bold ph-check"></i>
                     </div>
                     <span class="font-medium text-dark">Execução integrada: tráfego, conteúdo, design, SEO</span>
                 </div>
-                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
-                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
+                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
                         <i class="ph-bold ph-check"></i>
                     </div>
                     <span class="font-medium text-dark">Acompanhamento constante</span>
                 </div>
-                <div class="bg-white/60 backdrop-blur rounded-xl p-5 flex items-center gap-4">
-                    <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
+                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
                         <i class="ph-bold ph-check"></i>
                     </div>
                     <span class="font-medium text-dark">Expansão conforme os números crescem</span>
                 </div>
             </div>
 
-            <!-- Imagem Equipe -->
             <div class="w-full lg:w-1/2 relative">
-                <div class="bg-white p-4 rounded-2xl shadow-xl rotate-2 relative z-10">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe trabalhando" class="rounded-xl grayscale contrast-125 opacity-80">
-                    <!-- Elementos gráficos por cima da foto simulando o recorte de papel do print -->
-                    <div class="absolute inset-0 bg-blue-600 mix-blend-overlay opacity-30 rounded-xl"></div>
+                <div class="bg-white p-3 rounded-[2rem] shadow-hover rotate-2 relative z-10 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe trabalhando" class="rounded-3xl grayscale-[50%] contrast-125 object-cover h-[400px] w-full">
+                    <div class="absolute inset-0 bg-brand-blue/20 mix-blend-overlay rounded-3xl"></div>
                 </div>
-                <!-- Sombra decorativa colorida -->
-                <div class="absolute -inset-4 bg-gradient-to-r from-purple-500 to-orange-400 blur-xl opacity-30 -z-10 transform -rotate-6"></div>
+                <div class="absolute -inset-4 bg-gradient-to-r from-brand-blue to-brand-accent blur-2xl opacity-20 -z-10 transform -rotate-3 rounded-[3rem]"></div>
             </div>
         </div>
         
-        <div class="text-center mt-16 text-dark/80 font-medium">
+        <div class="text-center mt-20 text-brand-dark text-xl font-medium max-w-2xl mx-auto bg-white/50 backdrop-blur-md py-4 px-6 rounded-2xl border border-white shadow-sm">
             Você tem um negócio. Nós temos o marketing certo pra ele crescer.
         </div>
     </section>
 
-    <!-- 4. Services Grid Section -->
-    <section class="py-24 px-6 lg:px-20 bg-gray-50" id="servicos">
+    <section class="py-24 px-6 lg:px-20 bg-white" id="servicos">
         <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 font-semibold">
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 font-bold tracking-tight">
                 Marketing Digital Completo para<br> Escalar Negócios Locais e Nacionais
             </h2>
             <p class="text-gray-500 text-lg">Nossos serviços atendem empresas que querem<br> crescer com estratégia e previsibilidade:</p>
         </div>
 
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
-                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <i class="ph-bold ph-trend-up text-2xl"></i>
+            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-white text-brand-blue shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-duotone ph-trend-up text-3xl"></i>
                 </div>
                 <h3 class="font-bold text-dark text-xl mb-3">Gestão de Tráfego Pago</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Google Ads, Meta Ads, TikTok Ads e LinkedIn. Campanhas otimizadas pra gerar leads qualificados e vendas.</p>
             </div>
             
-            <!-- Card 2 -->
-            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
-                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <i class="ph-bold ph-magnifying-glass text-2xl"></i>
+            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-white text-brand-accent shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-duotone ph-magnifying-glass text-3xl"></i>
                 </div>
                 <h3 class="font-bold text-dark text-xl mb-3">SEO e Inbound Marketing</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Posicionamento orgânico no Google e nutrição inteligente dos seus leads.</p>
             </div>
 
-            <!-- Card 3 -->
-            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
-                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <i class="ph-bold ph-share-network text-2xl"></i>
+            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-white text-brand-blue shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-duotone ph-share-network text-3xl"></i>
                 </div>
                 <h3 class="font-bold text-dark text-xl mb-3">Gestão de Redes Sociais e Conteúdo</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Planejamento, produção e calendário com foco em autoridade e engajamento real.</p>
             </div>
 
-            <!-- Card 4 -->
-            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
-                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <i class="ph-bold ph-bezier-curve text-2xl"></i>
+            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-white text-brand-accent shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-duotone ph-bezier-curve text-3xl"></i>
                 </div>
                 <h3 class="font-bold text-dark text-xl mb-3">Design e Branding</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Criação visual estratégica para fortalecer sua marca e conversão.</p>
             </div>
 
-            <!-- Card 5 -->
-            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
-                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <i class="ph-bold ph-browser text-2xl"></i>
+            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-white text-brand-blue shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-duotone ph-browser text-3xl"></i>
                 </div>
-                <h3 class="font-bold text-dark text-xl mb-3">Landing Pages e Sites de Alta Performance</h3>
+                <h3 class="font-bold text-dark text-xl mb-3">Landing Pages e Sites</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Desenvolvimento 100% focado em conversão, com UX, copy e design alinhados.</p>
             </div>
 
-            <!-- Card 6 -->
-            <div class="bg-white border border-brand-light/30 rounded-2xl p-8 text-center shadow-sm hover:shadow-soft transition-all">
-                <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <i class="ph-bold ph-funnel text-2xl"></i>
+            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-white text-brand-accent shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-duotone ph-funnel text-3xl"></i>
                 </div>
-                <h3 class="font-bold text-dark text-xl mb-3">Funil de Vendas e Apoio Comercial</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Vamos além do marketing. Ajudamos na estrutura que converte.</p>
+                <h3 class="font-bold text-dark text-xl mb-3">Funil de Vendas</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Vamos além do marketing. Ajudamos na estrutura comercial que converte de verdade.</p>
             </div>
         </div>
     </section>
 
-    <!-- 5. Experience / Credentials Section -->
-    <section class="py-24 px-6 lg:px-20 bg-white" id="caso-real">
+    <section class="py-24 px-6 lg:px-20 bg-slate-50" id="caso-real">
         <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
-                Experiência prática que já gerou<br> <span class="font-bold">resultado</span> pra mais de 40 empresas
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
+                Experiência prática que já gerou<br> <span class="font-black text-brand-blue">resultado</span> pra mais de 40 empresas
             </h2>
         </div>
 
-        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 items-stretch">
-            <!-- Left Card (Depoimento Principal) -->
-            <div class="w-full lg:w-5/12 bg-gray-900 rounded-3xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carlos D." class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity">
-                <div class="relative z-10 p-8 h-full flex flex-col justify-between min-h-[400px]">
-                    <p class="text-white text-xl font-medium leading-relaxed">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-10 items-stretch">
+            <div class="w-full lg:w-5/12 bg-dark rounded-[2.5rem] overflow-hidden relative group shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carlos D." class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                <div class="relative z-10 p-10 h-full flex flex-col justify-end min-h-[450px]">
+                    <i class="ph-fill ph-quotes text-5xl text-brand-light opacity-50 mb-4"></i>
+                    <p class="text-white text-xl font-medium leading-relaxed mb-8">
                         "A ARKA mudou a forma como eu enxergo marketing. Agora cada real investido tem retorno."
                     </p>
                     <div>
                         <h4 class="text-white font-bold text-2xl">Carlos D.</h4>
-                        <p class="text-gray-300 text-sm">CEO de e-commerce</p>
+                        <p class="text-brand-accent font-medium text-sm">CEO de e-commerce</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Right List (Credenciais) -->
-            <div class="w-full lg:w-7/12 flex flex-col gap-4 justify-center">
-                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-bold ph-medal text-2xl"></i>
+            <div class="w-full lg:w-7/12 flex flex-col gap-5 justify-center">
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-duotone ph-medal text-3xl"></i>
                     </div>
-                    <span class="text-dark font-medium">Mais de 10 anos atuando em negócios reais</span>
+                    <span class="text-dark font-medium text-lg">Mais de 10 anos atuando em negócios reais</span>
                 </div>
                 
-                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-bold ph-certificate text-2xl"></i>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-duotone ph-certificate text-3xl"></i>
                     </div>
-                    <span class="text-dark font-medium">Especialistas certificados por Google, Meta, RD Station, HubSpot</span>
+                    <span class="text-dark font-medium text-lg">Especialistas certificados por Google, Meta, RD Station, HubSpot</span>
                 </div>
 
-                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-bold ph-users text-2xl"></i>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-duotone ph-users text-3xl"></i>
                     </div>
-                    <span class="text-dark font-medium">Experiência com e-commerce, consultorias, techs e mobilidade</span>
+                    <span class="text-dark font-medium text-lg">Experiência com e-commerce, consultorias, techs e mobilidade</span>
                 </div>
 
-                <div class="border border-brand-light/30 rounded-xl p-6 flex items-center gap-6 bg-white shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-bold ph-stack text-2xl"></i>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
+                        <i class="ph-duotone ph-stack text-3xl"></i>
                     </div>
-                    <span class="text-dark font-medium">Conhecimento aplicado em operações próprias e de terceiros</span>
+                    <span class="text-dark font-medium text-lg">Conhecimento aplicado em operações próprias e de terceiros</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Testimonials Section -->
     <section class="py-24 px-6 lg:px-20 bg-mesh" id="avaliacoes">
         <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
-                O que os <span class="font-bold">clientes<br> dizem</span> sobre a ARKA?
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
+                O que os <span class="font-black text-brand-blue">clientes<br> dizem</span> sobre a ARKA?
             </h2>
         </div>
 
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <!-- Review 1 -->
-            <div class="bg-white/90 backdrop-blur rounded-2xl p-8 shadow-sm">
-                <div class="flex gap-1 text-yellow-400 mb-4 text-xl">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-soft border border-white">
+                <div class="flex gap-1 text-amber-400 mb-6 text-xl drop-shadow-sm">
                     <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
                 </div>
-                <p class="text-gray-600 italic mb-8 min-h-[80px]">
+                <p class="text-gray-600 font-medium mb-8 min-h-[80px] leading-relaxed">
                     "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
                 </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Renata C." class="w-10 h-10 rounded-full object-cover">
+                <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Renata C." class="w-12 h-12 rounded-full object-cover shadow-sm">
                         <div>
-                            <h4 class="font-bold text-sm text-dark">Renata C.</h4>
-                            <p class="text-xs text-gray-500">38 anos</p>
+                            <h4 class="font-bold text-dark">Renata C.</h4>
+                            <p class="text-xs text-gray-500 font-medium">38 anos</p>
                         </div>
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-5 h-5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-6 h-6 grayscale hover:grayscale-0 transition-all">
                 </div>
             </div>
 
-            <!-- Review 2 -->
-            <div class="bg-white/90 backdrop-blur rounded-2xl p-8 shadow-sm">
-                <div class="flex gap-1 text-yellow-400 mb-4 text-xl">
+            <div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-soft border border-white">
+                <div class="flex gap-1 text-amber-400 mb-6 text-xl drop-shadow-sm">
                     <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
                 </div>
-                <p class="text-gray-600 italic mb-8 min-h-[80px]">
+                <p class="text-gray-600 font-medium mb-8 min-h-[80px] leading-relaxed">
                     "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
                 </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Julia B." class="w-10 h-10 rounded-full object-cover">
+                <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Julia B." class="w-12 h-12 rounded-full object-cover shadow-sm">
                         <div>
-                            <h4 class="font-bold text-sm text-dark">Julia B.</h4>
-                            <p class="text-xs text-gray-500">31 anos</p>
+                            <h4 class="font-bold text-dark">Julia B.</h4>
+                            <p class="text-xs text-gray-500 font-medium">31 anos</p>
                         </div>
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-5 h-5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-6 h-6 grayscale hover:grayscale-0 transition-all">
                 </div>
             </div>
 
-            <!-- Review 3 -->
-            <div class="bg-white/90 backdrop-blur rounded-2xl p-8 shadow-sm">
-                <div class="flex gap-1 text-yellow-400 mb-4 text-xl">
+            <div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-soft border border-white">
+                <div class="flex gap-1 text-amber-400 mb-6 text-xl drop-shadow-sm">
                     <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
                 </div>
-                <p class="text-gray-600 italic mb-8 min-h-[80px]">
+                <p class="text-gray-600 font-medium mb-8 min-h-[80px] leading-relaxed">
                     "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
                 </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Marina R." class="w-10 h-10 rounded-full object-cover">
+                <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Marina R." class="w-12 h-12 rounded-full object-cover shadow-sm">
                         <div>
-                            <h4 class="font-bold text-sm text-dark">Marina R.</h4>
-                            <p class="text-xs text-gray-500">35 anos</p>
+                            <h4 class="font-bold text-dark">Marina R.</h4>
+                            <p class="text-xs text-gray-500 font-medium">35 anos</p>
                         </div>
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-5 h-5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-6 h-6 grayscale hover:grayscale-0 transition-all">
                 </div>
             </div>
         </div>
 
         <div class="text-center">
-            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-3 rounded-lg shadow-blue hover:bg-brand-dark transition-colors">
-                <i class="ph ph-whatsapp text-xl"></i> Solicitar um orçamento <i class="ph ph-arrow-right"></i>
+            <a href="#" class="inline-flex items-center gap-3 bg-dark text-white font-semibold px-8 py-4 rounded-full shadow-hover hover:bg-brand-blue hover:-translate-y-1 transition-all duration-300">
+                <i class="ph ph-whatsapp text-2xl text-[#25D366]"></i> Solicitar um orçamento <i class="ph ph-arrow-right"></i>
             </a>
         </div>
     </section>
 
-    <!-- 7. Objections & Free Analysis Banner -->
     <section class="py-24 px-6 lg:px-20 bg-white">
         <div class="max-w-4xl mx-auto text-center mb-10">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4">
-                "Mas será que <span class="font-bold">agora vai funcionar?</span>"
+            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
+                "Mas será que <span class="font-black text-brand-blue">agora vai funcionar?</span>"
             </h2>
             <p class="text-gray-500 text-lg">Sabemos o que passa na sua cabeça:</p>
         </div>
 
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-4 mb-16">
-            <div class="flex-1 border border-brand-light/30 rounded-xl p-5 flex items-center justify-center gap-3 bg-white shadow-sm text-center">
-                <i class="ph ph-x text-red-500 text-lg font-bold"></i>
-                <span class="text-dark font-medium text-sm">Já tentei antes e não deu certo</span>
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 mb-20">
+            <div class="flex-1 border border-slate-200 rounded-2xl p-6 flex items-center justify-center gap-4 bg-white shadow-sm text-center">
+                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                    <i class="ph-bold ph-question text-slate-500"></i>
+                </div>
+                <span class="text-dark font-medium">Já tentei antes e não deu certo</span>
             </div>
-            <div class="flex-1 border border-brand-light/30 rounded-xl p-5 flex items-center justify-center gap-3 bg-white shadow-sm text-center">
-                <i class="ph ph-x text-red-500 text-lg font-bold"></i>
-                <span class="text-dark font-medium text-sm">Talvez ainda não seja o momento</span>
+            <div class="flex-1 border border-slate-200 rounded-2xl p-6 flex items-center justify-center gap-4 bg-white shadow-sm text-center">
+                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                    <i class="ph-bold ph-question text-slate-500"></i>
+                </div>
+                <span class="text-dark font-medium">Talvez ainda não seja o momento</span>
             </div>
-            <div class="flex-1 border border-brand-light/30 rounded-xl p-5 flex items-center justify-center gap-3 bg-white shadow-sm text-center">
-                <i class="ph ph-x text-red-500 text-lg font-bold"></i>
-                <span class="text-dark font-medium text-sm">E se eu gastar e não tiver retorno?</span>
+            <div class="flex-1 border border-slate-200 rounded-2xl p-6 flex items-center justify-center gap-4 bg-white shadow-sm text-center">
+                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                    <i class="ph-bold ph-question text-slate-500"></i>
+                </div>
+                <span class="text-dark font-medium">E se eu gastar e não tiver retorno?</span>
             </div>
         </div>
 
-        <!-- Big Banner -->
-        <div class="max-w-4xl mx-auto bg-gradient-to-r from-teal-300 via-blue-400 to-brand-blue rounded-[40px] p-12 text-center text-white shadow-xl relative overflow-hidden">
+        <div class="max-w-5xl mx-auto bg-dark rounded-[3rem] p-12 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/80 to-dark opacity-90 z-0"></div>
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-accent rounded-full blur-[80px] opacity-40 z-0"></div>
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-light rounded-full blur-[80px] opacity-30 z-0"></div>
+            
             <div class="relative z-10">
-                <h3 class="font-heading text-2xl lg:text-3xl mb-4">
+                <h3 class="font-heading text-3xl lg:text-4xl mb-6 font-medium leading-tight">
                     A gente entende. Por isso,<br>
-                    <span class="font-bold">o primeiro passo é gratuito e sem compromisso!</span>
+                    <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-accent">o primeiro passo é gratuito e sem compromisso!</span>
                 </h3>
-                <p class="text-white/90 mb-8 max-w-lg mx-auto text-sm">
+                <p class="text-white/80 mb-10 max-w-lg mx-auto text-lg">
                     A diferença entre um negócio estagnado e um em crescimento está na execução.
                 </p>
-                <a href="#" class="inline-flex items-center gap-2 bg-brand-dark/90 hover:bg-brand-dark text-white font-medium px-8 py-3 rounded-lg transition-colors border border-white/20">
-                    Quero a análise gratuita da ARKA <i class="ph ph-arrow-right"></i>
+                <a href="#" class="inline-flex items-center gap-3 bg-white text-dark font-bold px-8 py-4 rounded-full transition-all hover:scale-105 hover:shadow-hover">
+                    Quero a análise gratuita da ARKA <i class="ph-bold ph-arrow-right text-brand-blue"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 8. FAQ Section -->
-    <section class="py-24 px-6 lg:px-20 bg-white" id="faq">
+    <section class="py-24 px-6 lg:px-20 bg-slate-50" id="faq">
         <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="font-heading text-3xl lg:text-4xl text-dark font-bold mb-2">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl lg:text-4xl text-dark font-black mb-2 tracking-tight">
                     FAQ: Perguntas Frequentes
                 </h2>
-                <h3 class="text-2xl text-dark">sobre Marketing Digital Estratégico</h3>
+                <h3 class="text-xl text-gray-500 font-medium">sobre Marketing Digital Estratégico</h3>
             </div>
 
-            <div class="flex flex-col gap-4 mb-10 faq-container">
-                <!-- FAQ Item 1 -->
-                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden" open>
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+            <div class="flex flex-col gap-4 mb-12 faq-container">
+                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden" open>
+                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
                         Quais empresas a ARKA atende?
-                        <span class="transition group-open:rotate-180 text-brand-blue">
-                            <i class="ph ph-caret-down"></i>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
+                            <i class="ph-bold ph-caret-down"></i>
                         </span>
                     </summary>
-                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
                         Atendemos negócios locais e nacionais que buscam previsibilidade de vendas e crescimento estruturado. Não pegamos projetos sem viabilidade ou que prometem resultados irreais.
                     </div>
                 </details>
 
-                <!-- FAQ Item 2 -->
-                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden">
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
                         Quanto tempo leva pra ver resultado?
-                        <span class="transition group-open:rotate-180 text-brand-blue">
-                            <i class="ph ph-caret-down"></i>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
+                            <i class="ph-bold ph-caret-down"></i>
                         </span>
                     </summary>
-                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
                         O tempo varia de acordo com o segmento, orçamento e nível de maturidade digital da empresa, mas geralmente os primeiros sinais de melhora na qualidade dos leads acontecem logo nas primeiras semanas de otimização.
                     </div>
                 </details>
 
-                <!-- FAQ Item 3 -->
-                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden">
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
                         A ARKA é uma agência de Sorocaba?
-                        <span class="transition group-open:rotate-180 text-brand-blue">
-                            <i class="ph ph-caret-down"></i>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
+                            <i class="ph-bold ph-caret-down"></i>
                         </span>
                     </summary>
-                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
                         Nossa sede e raízes podem estar no interior de São Paulo, mas nossa operação e clientes estão espalhados por todo o Brasil. Atendemos com excelência independente da sua localização.
                     </div>
                 </details>
 
-                <!-- FAQ Item 4 -->
-                <details class="group bg-white border border-brand-light/30 rounded-xl shadow-sm overflow-hidden">
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-dark hover:text-brand-blue transition-colors">
+                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
                         A consulta estratégica é realmente gratuita?
-                        <span class="transition group-open:rotate-180 text-brand-blue">
-                            <i class="ph ph-caret-down"></i>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
+                            <i class="ph-bold ph-caret-down"></i>
                         </span>
                     </summary>
-                    <div class="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-100 mt-2">
+                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
                         Sim. Acreditamos que antes de propor qualquer serviço, precisamos entender seu cenário. O primeiro papo é para diagnóstico e alinhamento, sem nenhum compromisso financeiro atrelado.
                     </div>
                 </details>
             </div>
 
             <div class="text-center">
-                <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-3 rounded-lg shadow-blue hover:bg-brand-dark transition-colors">
-                    Falar com um especialista agora <i class="ph ph-arrow-right"></i>
+                <a href="#" class="inline-flex items-center gap-2 text-brand-blue font-bold px-8 py-3 rounded-full hover:bg-brand-bg transition-colors">
+                    Falar com um especialista agora <i class="ph-bold ph-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 9. Final CTA -->
-    <section class="py-24 px-6 lg:px-20 bg-mesh-footer text-center relative overflow-hidden">
-        <!-- Ícone decorativo flutuante -->
-        <div class="absolute left-1/4 top-1/3 opacity-50 float-anim">
-            <i class="ph-outline ph-megaphone text-4xl text-white"></i>
+    <section class="py-32 px-6 lg:px-20 bg-mesh-footer text-center relative overflow-hidden border-t border-slate-800">
+        <div class="absolute left-1/4 top-1/4 opacity-20 float-anim">
+            <i class="ph-duotone ph-megaphone text-7xl text-brand-accent"></i>
+        </div>
+        <div class="absolute right-1/4 bottom-1/4 opacity-20 float-anim-delayed">
+            <i class="ph-duotone ph-rocket text-7xl text-brand-light"></i>
         </div>
 
         <div class="max-w-3xl mx-auto relative z-10">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-6">
-                Você pode continuar investindo no<br> escuro ou <span class="font-bold">começar a escalar com estratégia!</span>
+            <h2 class="font-heading text-4xl lg:text-5xl text-white mb-6 tracking-tight leading-tight">
+                Você pode continuar investindo no<br> escuro ou <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-light">começar a escalar com estratégia!</span>
             </h2>
-            <p class="text-dark/80 font-medium mb-4">A ARKA está pronta pra construir isso com você!</p>
-            <p class="text-gray-600 text-sm mb-10">A diferença entre um negócio estagnado e um<br> em crescimento está na execução.</p>
+            <p class="text-white/90 text-xl font-medium mb-4">A ARKA está pronta pra construir isso com você!</p>
+            <p class="text-slate-400 mb-12">A diferença entre um negócio estagnado e um<br> em crescimento está na execução.</p>
             
-            <a href="#" class="inline-flex items-center gap-2 bg-brand-blue text-white font-medium px-8 py-4 rounded-xl shadow-blue hover:bg-brand-dark transition-colors text-lg">
-                Solicitar diagnóstico gratuito agora <i class="ph ph-arrow-right"></i>
+            <a href="#" class="inline-flex items-center gap-3 bg-brand-blue text-white font-bold px-10 py-5 rounded-full shadow-[0_0_40px_rgba(79,70,229,0.5)] hover:bg-brand-light hover:-translate-y-1 transition-all duration-300 text-lg">
+                Solicitar diagnóstico gratuito agora <i class="ph-bold ph-arrow-right"></i>
             </a>
         </div>
     </section>
 
-    <!-- 10. Footer -->
-    <footer class="bg-white pt-16 pb-8 px-6 lg:px-20 border-t border-gray-100">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-            <!-- Coluna 1 -->
+    <footer class="bg-dark pt-20 pb-8 px-6 lg:px-20 text-slate-300">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             <div>
-                <!-- Logo -->
-                <div class="flex items-center gap-1 mb-4">
-                    <div class="text-3xl font-black font-heading tracking-tighter">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-brand-blue to-teal-400">ARKA</span>
+                <div class="flex flex-col mb-6">
+                    <div class="text-3xl font-black font-heading tracking-tighter leading-none">
+                        <span class="text-white">ARKA</span>
                     </div>
+                    <div class="text-[9px] text-brand-accent font-bold tracking-[0.2em] uppercase mt-1">Comunicação</div>
                 </div>
-                <h4 class="font-bold text-dark mb-4">ARKA COMUNICAÇÃO ESTRATÉGICA</h4>
-                <p class="text-sm text-gray-500 mb-4">CNPJ: 62.415.222/0001-22</p>
-                <p class="text-xs text-gray-400 leading-relaxed max-w-xs">
+                <h4 class="font-bold text-white mb-4">ARKA COMUNICAÇÃO ESTRATÉGICA</h4>
+                <p class="text-sm text-slate-400 mb-4">CNPJ: 62.415.222/0001-22</p>
+                <p class="text-xs text-slate-500 leading-relaxed max-w-xs">
                     Marketing Digital | Agência de Performance | Tráfego Pago | SEO | Gestão de Redes
                 </p>
             </div>
 
-            <!-- Coluna 2 -->
             <div>
-                <h4 class="font-bold text-dark mb-6 text-lg">Contato</h4>
-                <div class="flex flex-col gap-4 text-sm text-gray-600">
-                    <a href="#" class="flex items-center gap-2 hover:text-brand-blue transition-colors">
-                        <i class="ph ph-whatsapp text-lg text-brand-blue"></i> WhatsApp: (xx) xxxx-xxxx
+                <h4 class="font-bold text-white mb-6 text-lg">Contato</h4>
+                <div class="flex flex-col gap-4 text-sm">
+                    <a href="#" class="flex items-center gap-3 hover:text-brand-accent transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                            <i class="ph-fill ph-whatsapp text-lg"></i>
+                        </div>
+                        WhatsApp: (xx) xxxx-xxxx
                     </a>
-                    <a href="mailto:contato@arka.com.br" class="flex items-center gap-2 hover:text-brand-blue transition-colors">
-                        <i class="ph ph-envelope-simple text-lg text-brand-blue"></i> contato@arka.com.br
+                    <a href="mailto:contato@arka.com.br" class="flex items-center gap-3 hover:text-brand-accent transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                            <i class="ph-fill ph-envelope-simple text-lg"></i>
+                        </div>
+                        contato@arka.com.br
                     </a>
                 </div>
             </div>
 
-            <!-- Coluna 3 -->
             <div>
-                <h4 class="font-bold text-dark mb-6 text-lg">Redes Sociais</h4>
+                <h4 class="font-bold text-white mb-6 text-lg">Redes Sociais</h4>
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition-colors">
-                        <i class="ph ph-instagram-logo text-xl"></i>
+                    <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-blue transition-all hover:-translate-y-1">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition-colors">
-                        <i class="ph ph-facebook-logo text-xl"></i>
+                    <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-blue transition-all hover:-translate-y-1">
+                        <i class="ph-fill ph-facebook-logo text-xl"></i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Linha inferior -->
-        <div class="max-w-6xl mx-auto border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
             <p>© 2026 ARKA Comunicação. Todos os direitos reservados.</p>
-            <div class="flex gap-4">
-                <a href="#" class="hover:text-brand-blue transition-colors">Termos de uso</a>
-                <span class="text-gray-300">|</span>
-                <a href="#" class="hover:text-brand-blue transition-colors">Política de privacidade</a>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors">Termos de uso</a>
+                <a href="#" class="hover:text-white transition-colors">Política de privacidade</a>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts para interações -->
     <script>
         // Menu Mobile Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
@@ -681,8 +671,13 @@
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
         function toggleMenu() {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
+            if(mobileMenu.classList.contains('hidden')){
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => mobileMenu.classList.add('opacity-100'), 10);
+            } else {
+                mobileMenu.classList.remove('opacity-100');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+            }
             document.body.classList.toggle('overflow-hidden');
         }
 

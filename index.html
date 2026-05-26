@@ -1,705 +1,566 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARKA Comunicação - Marketing Digital com Resultado Real</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
+    <title>Arka+ | Marketing, IA e Automação</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
                     },
                     colors: {
                         brand: {
-                            blue: '#4F46E5', /* Indigo 600 */
-                            light: '#818CF8', /* Indigo 400 */
-                            dark: '#312E81', /* Indigo 900 */
-                            accent: '#06B6D4', /* Cyan 500 */
-                            bg: '#F8FAFC'
-                        },
-                        dark: '#0F172A'
+                            purple: '#6C2BD9', // Cor principal roxa baseada na imagem
+                            light: '#F5F3FF', // Fundo claro roxo
+                            dark: '#1E1B4B', // Texto muito escuro (azul/roxo)
+                            gray: '#6B7280', // Texto secundário
+                            bg: '#FAFAFA' // Cor de fundo geral bem clara
+                        }
                     },
                     boxShadow: {
-                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)',
-                        'blue': '0 10px 25px -5px rgba(79, 70, 229, 0.4)',
-                        'hover': '0 25px 50px -12px rgba(0, 0, 0, 0.15)'
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'float': '0 10px 40px -10px rgba(108, 43, 217, 0.15)',
                     }
                 }
             }
         }
     </script>
-
     <style>
-        /* Gradientes de fundo modernos e sofisticados */
-        .bg-mesh {
-            background-color: #F8FAFC;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.15) 0px, transparent 50%);
+        /* Estilos adicionais personalizados para detalhes finos */
+        body { background-color: #ffffff; color: #1E1B4B; }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #6C2BD9, #9333EA);
         }
-
-        .bg-mesh-footer {
-            background-color: #0F172A;
-            background-image: 
-                radial-gradient(at 0% 100%, rgba(79, 70, 229, 0.4) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.3) 0px, transparent 50%);
+        .hero-graphic-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(108, 43, 217, 0.05) 0%, transparent 70%);
         }
-
-        /* Estilização nativa do accordion (FAQ) com transição suave */
-        details > summary {
-            list-style: none;
-        }
-        details > summary::-webkit-details-marker {
-            display: none;
-        }
-        details[open] summary ~ * {
-            animation: sweep .4s ease-in-out;
-        }
-        @keyframes sweep {
-            0%    {opacity: 0; transform: translateY(-10px)}
-            100%  {opacity: 1; transform: translateY(0px)}
-        }
-
-        /* Animação flutuante para ícones decorativos */
-        .float-anim {
-            animation: float 6s ease-in-out infinite;
-        }
-        .float-anim-delayed {
-            animation: float 6s ease-in-out infinite;
-            animation-delay: 3s;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        /* Máscara de imagem suave */
-        .image-mask {
-            mask-image: linear-gradient(to top, transparent 5%, black 25%);
-            -webkit-mask-image: linear-gradient(to top, transparent 5%, black 25%);
+        /* Utilitário para o pontilhado do mapa */
+        .map-bg {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 12px 12px;
         }
     </style>
 </head>
-<body class="font-sans text-gray-700 antialiased overflow-x-hidden selection:bg-brand-blue selection:text-white">
+<body class="antialiased overflow-x-hidden selection:bg-brand-purple selection:text-white">
 
-    <a href="#" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg z-50 hover:scale-110 hover:shadow-xl transition-all duration-300 flex items-center justify-center group">
-        <i class="ph ph-whatsapp text-3xl group-hover:animate-pulse"></i>
-    </a>
-
-    <nav class="absolute w-full z-40 top-0 py-6 px-6 lg:px-20 flex justify-between items-center">
-        <div class="flex flex-col justify-center">
-            <div class="text-3xl font-black font-heading tracking-tighter leading-none">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-accent">ARKA</span>
-            </div>
-            <div class="text-[9px] text-gray-500 font-bold tracking-[0.2em] uppercase mt-1">Comunicação</div>
-        </div>
-
-        <div class="hidden lg:flex gap-8 font-medium text-dark/80 bg-white/40 backdrop-blur-md px-8 py-3 rounded-full border border-white/50 shadow-sm">
-            <a href="#sobre" class="hover:text-brand-blue transition-colors">Sobre</a>
-            <a href="#servicos" class="hover:text-brand-blue transition-colors">Serviços</a>
-            <a href="#caso-real" class="hover:text-brand-blue transition-colors">Caso Real</a>
-            <a href="#avaliacoes" class="hover:text-brand-blue transition-colors">Avaliações</a>
-            <a href="#faq" class="hover:text-brand-blue transition-colors">Faq</a>
-        </div>
-
-        <a href="#" class="hidden lg:block bg-dark text-white px-6 py-2.5 rounded-full font-medium hover:bg-brand-blue hover:shadow-blue transition-all duration-300">
-            Falar com especialista
-        </a>
-
-        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-dark p-2 bg-white/50 backdrop-blur rounded-lg">
-            <i class="ph ph-list"></i>
-        </button>
-    </nav>
-
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-50 hidden flex-col items-center justify-center gap-6 text-xl font-medium transition-opacity">
-        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-dark p-2"><i class="ph ph-x"></i></button>
-        <a href="#sobre" class="mobile-link text-dark hover:text-brand-blue">Sobre</a>
-        <a href="#servicos" class="mobile-link text-dark hover:text-brand-blue">Serviços</a>
-        <a href="#caso-real" class="mobile-link text-dark hover:text-brand-blue">Caso Real</a>
-        <a href="#avaliacoes" class="mobile-link text-dark hover:text-brand-blue">Avaliações</a>
-        <a href="#faq" class="mobile-link text-dark hover:text-brand-blue">Faq</a>
-        <a href="#" class="mt-4 bg-brand-blue text-white px-8 py-3 rounded-full shadow-blue">Falar com especialista</a>
-    </div>
-
-    <section class="relative min-h-screen bg-mesh pt-32 pb-20 px-6 lg:px-20 flex flex-col lg:flex-row items-center overflow-hidden" id="sobre">
-        
-        <div class="absolute top-1/4 left-10 bg-brand-accent/20 w-16 h-16 rounded-full blur-2xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 float-anim z-10 text-4xl opacity-80"><i class="ph-fill ph-rocket-launch text-brand-blue"></i></div>
-        <div class="absolute top-1/3 right-1/2 float-anim-delayed z-10 text-5xl opacity-80"><i class="ph-fill ph-chart-line-up text-brand-accent"></i></div>
-
-        <div class="w-full lg:w-1/2 relative z-20 max-w-2xl">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-semibold mb-6 border border-brand-blue/20">
-                <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
-                Estratégia de ponta a ponta
-            </div>
-            <h1 class="font-heading text-5xl lg:text-6xl font-black text-dark leading-[1.15] mb-6 tracking-tight">
-                Marketing Digital com <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-accent">Resultado Real</span>, Não Achismo
-            </h1>
-            <p class="text-lg text-gray-600 mb-10 max-w-lg leading-relaxed">
-                A ARKA é uma agência que nasceu dentro de empresas reais, enfrentando desafios reais. Por isso entrega estratégias testadas que escalam negócios de verdade.
-            </p>
-            <a href="#" class="group inline-flex items-center gap-3 bg-brand-blue text-white font-medium px-8 py-4 rounded-full shadow-blue hover:bg-brand-dark hover:-translate-y-1 transition-all duration-300">
-                Quero crescer com marketing 
-                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
-            </a>
-        </div>
-
-        <div class="w-full lg:w-1/2 relative z-10 mt-16 lg:mt-0 flex justify-center lg:justify-end">
-            <div class="absolute w-[300px] h-[300px] lg:w-[480px] lg:h-[480px] bg-gradient-to-br from-brand-blue/30 to-brand-accent/30 rounded-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:right-10 z-0 blur-3xl"></div>
-            
-            <div class="absolute w-48 h-48 top-10 right-20 z-0 opacity-20" style="background-image: radial-gradient(#4F46E5 2px, transparent 2px); background-size: 16px 16px;"></div>
-            
-            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional de Marketing" class="relative z-10 object-cover object-top w-[350px] lg:w-[500px] h-[450px] lg:h-[650px] grayscale contrast-125 mix-blend-multiply image-mask">
-        </div>
-
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white text-dark w-16 h-10 rounded-t-2xl flex items-center justify-center shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
-            <i class="ph ph-caret-down text-2xl animate-bounce mt-2 text-brand-blue"></i>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 lg:px-20 bg-white relative">
-        <div class="max-w-4xl mx-auto text-center mb-16 relative z-10">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
-                Você já investiu em marketing.<br> <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Só não viu o retorno.</span>
-            </h2>
-            <p class="text-gray-500 text-lg">Cansado de se identificar com isso?</p>
-        </div>
-
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 relative z-10">
-            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
-                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                    <i class="ph-bold ph-x text-xl"></i>
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <span class="text-3xl font-bold tracking-tight text-brand-dark">arka</span>
+                    <svg class="w-6 h-6 text-brand-purple" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                    </svg>
                 </div>
-                <span class="text-dark font-medium">Campanhas bonitas, mas sem cliente novo</span>
-            </div>
-            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
-                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                    <i class="ph-bold ph-x text-xl"></i>
-                </div>
-                <span class="text-dark font-medium">Poucas vendas, leads desqualificados</span>
-            </div>
-            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
-                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                    <i class="ph-bold ph-x text-xl"></i>
-                </div>
-                <span class="text-dark font-medium">Posts no Instagram que ninguém comenta</span>
-            </div>
-            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
-                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                    <i class="ph-bold ph-x text-xl"></i>
-                </div>
-                <span class="text-dark font-medium">Anúncios rodando no escuro, sem saber o que traz resultado</span>
-            </div>
-            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
-                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                    <i class="ph-bold ph-x text-xl"></i>
-                </div>
-                <span class="text-dark font-medium">Falta de previsibilidade e clareza</span>
-            </div>
-            <div class="border border-red-100 rounded-2xl p-6 flex items-center gap-5 bg-red-50/30 hover:bg-red-50/80 transition-colors shadow-sm">
-                <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                    <i class="ph-bold ph-x text-xl"></i>
-                </div>
-                <span class="text-dark font-medium">Agência que some depois do briefing</span>
-            </div>
-        </div>
 
-        <div class="max-w-2xl mx-auto text-center mt-16 relative z-10">
-            <h3 class="font-heading text-2xl font-bold text-brand-dark mb-3">"Já tentei e não funcionou!"</h3>
-            <p class="text-gray-500 mb-8 text-lg">Sim, a gente ouve isso todo dia. E por isso a forma como trabalhamos é diferente.</p>
-            <a href="#metodologia" class="inline-flex items-center gap-2 bg-white text-brand-dark border-2 border-brand-dark font-semibold px-8 py-3 rounded-full hover:bg-brand-dark hover:text-white transition-colors duration-300">
-                Quero entender como funciona <i class="ph ph-arrow-down"></i>
-            </a>
-        </div>
-    </section>
+                <!-- Links (Desktop) -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-brand-gray">
+                    <a href="#" class="text-brand-dark hover:text-brand-purple transition">Início</a>
+                    <a href="#" class="hover:text-brand-purple transition">Soluções</a>
+                    <a href="#" class="hover:text-brand-purple transition">Cases</a>
+                    <a href="#" class="hover:text-brand-purple transition">Sobre</a>
+                    <a href="#" class="hover:text-brand-purple transition">IA</a>
+                    <a href="#" class="hover:text-brand-purple transition">Contato</a>
+                </div>
 
-    <section class="py-24 px-6 lg:px-20 bg-mesh relative" id="metodologia">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
-                Somos <span class="font-black text-brand-blue">especialistas</span> em uma coisa:<br> <span class="font-bold">fazer o marketing funcionar de verdade</span>
-            </h2>
-            <p class="text-gray-600 text-lg">Sem fórmulas mágicas. Sem promessas de viralizar.<br>Só estratégia, execução e resultado.</p>
-        </div>
-
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-            <div class="w-full lg:w-1/2 flex flex-col gap-4">
-                <div class="bg-white rounded-2xl p-5 flex items-center gap-5 shadow-soft border-l-4 border-brand-blue transform hover:translate-x-2 transition-transform duration-300">
-                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                        <i class="ph-bold ph-check"></i>
-                    </div>
-                    <span class="font-medium text-dark">Diagnóstico estratégico do seu negócio</span>
-                </div>
-                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
-                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                        <i class="ph-bold ph-check"></i>
-                    </div>
-                    <span class="font-medium text-dark">Planejamento baseado em dados e metas</span>
-                </div>
-                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
-                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                        <i class="ph-bold ph-check"></i>
-                    </div>
-                    <span class="font-medium text-dark">Execução integrada: tráfego, conteúdo, design, SEO</span>
-                </div>
-                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
-                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                        <i class="ph-bold ph-check"></i>
-                    </div>
-                    <span class="font-medium text-dark">Acompanhamento constante</span>
-                </div>
-                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-5 border border-white transform hover:translate-x-2 transition-transform duration-300">
-                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                        <i class="ph-bold ph-check"></i>
-                    </div>
-                    <span class="font-medium text-dark">Expansão conforme os números crescem</span>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-1/2 relative">
-                <div class="bg-white p-3 rounded-[2rem] shadow-hover rotate-2 relative z-10 hover:rotate-0 transition-transform duration-500">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe trabalhando" class="rounded-3xl grayscale-[50%] contrast-125 object-cover h-[400px] w-full">
-                    <div class="absolute inset-0 bg-brand-blue/20 mix-blend-overlay rounded-3xl"></div>
-                </div>
-                <div class="absolute -inset-4 bg-gradient-to-r from-brand-blue to-brand-accent blur-2xl opacity-20 -z-10 transform -rotate-3 rounded-[3rem]"></div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-20 text-brand-dark text-xl font-medium max-w-2xl mx-auto bg-white/50 backdrop-blur-md py-4 px-6 rounded-2xl border border-white shadow-sm">
-            Você tem um negócio. Nós temos o marketing certo pra ele crescer.
-        </div>
-    </section>
-
-    <section class="py-24 px-6 lg:px-20 bg-white" id="servicos">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 font-bold tracking-tight">
-                Marketing Digital Completo para<br> Escalar Negócios Locais e Nacionais
-            </h2>
-            <p class="text-gray-500 text-lg">Nossos serviços atendem empresas que querem<br> crescer com estratégia e previsibilidade:</p>
-        </div>
-
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-white text-brand-blue shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph-duotone ph-trend-up text-3xl"></i>
-                </div>
-                <h3 class="font-bold text-dark text-xl mb-3">Gestão de Tráfego Pago</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Google Ads, Meta Ads, TikTok Ads e LinkedIn. Campanhas otimizadas pra gerar leads qualificados e vendas.</p>
-            </div>
-            
-            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-white text-brand-accent shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph-duotone ph-magnifying-glass text-3xl"></i>
-                </div>
-                <h3 class="font-bold text-dark text-xl mb-3">SEO e Inbound Marketing</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Posicionamento orgânico no Google e nutrição inteligente dos seus leads.</p>
-            </div>
-
-            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-white text-brand-blue shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph-duotone ph-share-network text-3xl"></i>
-                </div>
-                <h3 class="font-bold text-dark text-xl mb-3">Gestão de Redes Sociais e Conteúdo</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Planejamento, produção e calendário com foco em autoridade e engajamento real.</p>
-            </div>
-
-            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-white text-brand-accent shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph-duotone ph-bezier-curve text-3xl"></i>
-                </div>
-                <h3 class="font-bold text-dark text-xl mb-3">Design e Branding</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Criação visual estratégica para fortalecer sua marca e conversão.</p>
-            </div>
-
-            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-white text-brand-blue shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph-duotone ph-browser text-3xl"></i>
-                </div>
-                <h3 class="font-bold text-dark text-xl mb-3">Landing Pages e Sites</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Desenvolvimento 100% focado em conversão, com UX, copy e design alinhados.</p>
-            </div>
-
-            <div class="bg-brand-bg border border-slate-100 rounded-[2rem] p-8 text-center hover:bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 group">
-                <div class="w-16 h-16 bg-white text-brand-accent shadow-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph-duotone ph-funnel text-3xl"></i>
-                </div>
-                <h3 class="font-bold text-dark text-xl mb-3">Funil de Vendas</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Vamos além do marketing. Ajudamos na estrutura comercial que converte de verdade.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 lg:px-20 bg-slate-50" id="caso-real">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
-                Experiência prática que já gerou<br> <span class="font-black text-brand-blue">resultado</span> pra mais de 40 empresas
-            </h2>
-        </div>
-
-        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-10 items-stretch">
-            <div class="w-full lg:w-5/12 bg-dark rounded-[2.5rem] overflow-hidden relative group shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carlos D." class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
-                <div class="relative z-10 p-10 h-full flex flex-col justify-end min-h-[450px]">
-                    <i class="ph-fill ph-quotes text-5xl text-brand-light opacity-50 mb-4"></i>
-                    <p class="text-white text-xl font-medium leading-relaxed mb-8">
-                        "A ARKA mudou a forma como eu enxergo marketing. Agora cada real investido tem retorno."
-                    </p>
-                    <div>
-                        <h4 class="text-white font-bold text-2xl">Carlos D.</h4>
-                        <p class="text-brand-accent font-medium text-sm">CEO de e-commerce</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-7/12 flex flex-col gap-5 justify-center">
-                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-duotone ph-medal text-3xl"></i>
-                    </div>
-                    <span class="text-dark font-medium text-lg">Mais de 10 anos atuando em negócios reais</span>
+                <!-- CTA -->
+                <div class="hidden md:flex">
+                    <a href="#" class="bg-brand-purple text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-purple-700 transition shadow-md shadow-brand-purple/30">
+                        Falar com especialista <span class="ml-1">→</span>
+                    </a>
                 </div>
                 
-                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-duotone ph-certificate text-3xl"></i>
+                <!-- Mobile Menu Button (Visual Only) -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-brand-dark">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- Hero Text -->
+                <div class="lg:w-1/2 z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-light text-brand-purple text-xs font-semibold mb-6 uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-purple"></span>
+                        ARKA > AGÊNCIA DE ALTA PERFORMANCE
                     </div>
-                    <span class="text-dark font-medium text-lg">Especialistas certificados por Google, Meta, RD Station, HubSpot</span>
+                    <h1 class="text-5xl lg:text-[4rem] leading-[1.1] font-bold text-brand-dark mb-6">
+                        Marketing, IA e Automação para empresas que <br class="hidden lg:block"/> querem <span class="text-brand-purple">crescer sem limites.</span>
+                    </h1>
+                    <p class="text-lg text-brand-gray mb-8 max-w-xl leading-relaxed">
+                        Unimos estratégia, criatividade e inteligência artificial para criar sistemas que geram resultados reais e crescimento escalável para o seu negócio.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 items-center">
+                        <a href="#" class="w-full sm:w-auto bg-brand-purple text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-purple-700 transition shadow-lg shadow-brand-purple/30 flex items-center justify-center">
+                            Agendar uma estratégia <span class="ml-2">→</span>
+                        </a>
+                        <a href="#" class="w-full sm:w-auto text-brand-dark font-semibold px-6 py-4 hover:text-brand-purple transition flex items-center justify-center">
+                            Conheça nossas soluções <span class="ml-2 text-gray-400">↓</span>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-duotone ph-users text-3xl"></i>
+                <!-- Hero Graphic (Mockup of the 3D elements) -->
+                <div class="lg:w-1/2 w-full h-[500px] relative hero-graphic-bg flex items-center justify-center">
+                    
+                    <!-- Main Chart Card -->
+                    <div class="absolute top-10 right-10 w-72 bg-white rounded-2xl shadow-float p-5 border border-gray-100 z-10 animate-[bounce_5s_ease-in-out_infinite]">
+                        <div class="text-xs text-gray-400 font-medium mb-1">Performance geral</div>
+                        <div class="text-2xl font-bold text-brand-dark flex items-center gap-2">
+                            +127% <span class="text-xs text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-full font-medium">↑ 22%</span>
+                        </div>
+                        <!-- Mock Chart Line -->
+                        <div class="mt-4 h-16 w-full relative">
+                            <svg viewBox="0 0 100 40" class="w-full h-full overflow-visible" preserveAspectRatio="none">
+                                <path d="M0 30 Q 15 20, 30 25 T 60 15 T 100 5" fill="none" stroke="#6C2BD9" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="100" cy="5" r="3" fill="#6C2BD9" />
+                            </svg>
+                        </div>
                     </div>
-                    <span class="text-dark font-medium text-lg">Experiência com e-commerce, consultorias, techs e mobilidade</span>
-                </div>
 
-                <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand-blue flex items-center justify-center shrink-0">
-                        <i class="ph-duotone ph-stack text-3xl"></i>
+                    <!-- Small Stat Cards -->
+                    <div class="absolute bottom-24 left-10 w-32 bg-white rounded-xl shadow-float p-4 border border-gray-100 z-20">
+                        <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Leads gerados</div>
+                        <div class="text-lg font-bold text-brand-dark">8.642</div>
+                        <div class="text-[10px] text-emerald-500 mt-1">+32%</div>
                     </div>
-                    <span class="text-dark font-medium text-lg">Conhecimento aplicado em operações próprias e de terceiros</span>
+
+                    <div class="absolute bottom-32 left-48 w-32 bg-white rounded-xl shadow-float p-4 border border-gray-100 z-20">
+                        <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Conversões</div>
+                        <div class="text-lg font-bold text-brand-dark">2.173</div>
+                        <div class="text-[10px] text-emerald-500 mt-1">+15%</div>
+                    </div>
+
+                    <div class="absolute top-48 right-16 w-36 bg-white rounded-xl shadow-float p-4 border border-gray-100 z-20 flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-full bg-brand-light text-brand-purple flex items-center justify-center mb-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/></svg>
+                        </div>
+                        <div class="text-xs font-semibold text-brand-dark">Automação</div>
+                        <div class="text-[10px] text-gray-500">Ativa</div>
+                    </div>
+
+                    <div class="absolute bottom-10 right-20 w-40 bg-white rounded-xl shadow-float p-4 border border-gray-100 z-30">
+                        <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Receita gerada</div>
+                        <div class="text-xl font-bold text-brand-dark">R$ 3,2M</div>
+                        <div class="text-[10px] text-emerald-500 mt-1">+45%</div>
+                    </div>
+
+                    <!-- Decorative Star -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-brand-purple rounded-2xl shadow-lg flex items-center justify-center -rotate-12 z-0">
+                         <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                        </svg>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 lg:px-20 bg-mesh" id="avaliacoes">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
-                O que os <span class="font-black text-brand-blue">clientes<br> dizem</span> sobre a ARKA?
-            </h2>
-        </div>
-
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-soft border border-white">
-                <div class="flex gap-1 text-amber-400 mb-6 text-xl drop-shadow-sm">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                </div>
-                <p class="text-gray-600 font-medium mb-8 min-h-[80px] leading-relaxed">
-                    "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
-                </p>
-                <div class="flex items-center justify-between border-t border-gray-100 pt-6">
-                    <div class="flex items-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Renata C." class="w-12 h-12 rounded-full object-cover shadow-sm">
-                        <div>
-                            <h4 class="font-bold text-dark">Renata C.</h4>
-                            <p class="text-xs text-gray-500 font-medium">38 anos</p>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-6 h-6 grayscale hover:grayscale-0 transition-all">
-                </div>
-            </div>
-
-            <div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-soft border border-white">
-                <div class="flex gap-1 text-amber-400 mb-6 text-xl drop-shadow-sm">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                </div>
-                <p class="text-gray-600 font-medium mb-8 min-h-[80px] leading-relaxed">
-                    "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
-                </p>
-                <div class="flex items-center justify-between border-t border-gray-100 pt-6">
-                    <div class="flex items-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Julia B." class="w-12 h-12 rounded-full object-cover shadow-sm">
-                        <div>
-                            <h4 class="font-bold text-dark">Julia B.</h4>
-                            <p class="text-xs text-gray-500 font-medium">31 anos</p>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-6 h-6 grayscale hover:grayscale-0 transition-all">
-                </div>
-            </div>
-
-            <div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-soft border border-white">
-                <div class="flex gap-1 text-amber-400 mb-6 text-xl drop-shadow-sm">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                </div>
-                <p class="text-gray-600 font-medium mb-8 min-h-[80px] leading-relaxed">
-                    "Fizeram mais pelo meu negócio em dois meses do que outras agências em dois anos."
-                </p>
-                <div class="flex items-center justify-between border-t border-gray-100 pt-6">
-                    <div class="flex items-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Marina R." class="w-12 h-12 rounded-full object-cover shadow-sm">
-                        <div>
-                            <h4 class="font-bold text-dark">Marina R.</h4>
-                            <p class="text-xs text-gray-500 font-medium">35 anos</p>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-6 h-6 grayscale hover:grayscale-0 transition-all">
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center">
-            <a href="#" class="inline-flex items-center gap-3 bg-dark text-white font-semibold px-8 py-4 rounded-full shadow-hover hover:bg-brand-blue hover:-translate-y-1 transition-all duration-300">
-                <i class="ph ph-whatsapp text-2xl text-[#25D366]"></i> Solicitar um orçamento <i class="ph ph-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 lg:px-20 bg-white">
-        <div class="max-w-4xl mx-auto text-center mb-10">
-            <h2 class="font-heading text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
-                "Mas será que <span class="font-black text-brand-blue">agora vai funcionar?</span>"
-            </h2>
-            <p class="text-gray-500 text-lg">Sabemos o que passa na sua cabeça:</p>
-        </div>
-
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 mb-20">
-            <div class="flex-1 border border-slate-200 rounded-2xl p-6 flex items-center justify-center gap-4 bg-white shadow-sm text-center">
-                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-                    <i class="ph-bold ph-question text-slate-500"></i>
-                </div>
-                <span class="text-dark font-medium">Já tentei antes e não deu certo</span>
-            </div>
-            <div class="flex-1 border border-slate-200 rounded-2xl p-6 flex items-center justify-center gap-4 bg-white shadow-sm text-center">
-                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-                    <i class="ph-bold ph-question text-slate-500"></i>
-                </div>
-                <span class="text-dark font-medium">Talvez ainda não seja o momento</span>
-            </div>
-            <div class="flex-1 border border-slate-200 rounded-2xl p-6 flex items-center justify-center gap-4 bg-white shadow-sm text-center">
-                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-                    <i class="ph-bold ph-question text-slate-500"></i>
-                </div>
-                <span class="text-dark font-medium">E se eu gastar e não tiver retorno?</span>
-            </div>
-        </div>
-
-        <div class="max-w-5xl mx-auto bg-dark rounded-[3rem] p-12 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/80 to-dark opacity-90 z-0"></div>
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-accent rounded-full blur-[80px] opacity-40 z-0"></div>
-            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-light rounded-full blur-[80px] opacity-30 z-0"></div>
-            
-            <div class="relative z-10">
-                <h3 class="font-heading text-3xl lg:text-4xl mb-6 font-medium leading-tight">
-                    A gente entende. Por isso,<br>
-                    <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-accent">o primeiro passo é gratuito e sem compromisso!</span>
-                </h3>
-                <p class="text-white/80 mb-10 max-w-lg mx-auto text-lg">
-                    A diferença entre um negócio estagnado e um em crescimento está na execução.
-                </p>
-                <a href="#" class="inline-flex items-center gap-3 bg-white text-dark font-bold px-8 py-4 rounded-full transition-all hover:scale-105 hover:shadow-hover">
-                    Quero a análise gratuita da ARKA <i class="ph-bold ph-arrow-right text-brand-blue"></i>
-                </a>
+    <!-- Logos Section -->
+    <section class="py-10 border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-xs font-semibold text-brand-purple uppercase tracking-widest mb-8">Empresas que confiam na Arka</p>
+            <div class="flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                <!-- Mockup Logos as Text for accuracy without images -->
+                <div class="flex items-center gap-2 font-bold text-xl"><span class="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center text-[10px]">vfs</span> GLOBAL</div>
+                <div class="text-2xl font-bold tracking-tighter">KUMON</div>
+                <div class="flex flex-col items-center"><span class="text-xl font-black tracking-wide">CHAMPION</span><span class="text-[10px] tracking-[0.2em]">USA</span></div>
+                <div class="flex items-center gap-1 text-2xl font-bold"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>LEGE</div>
+                <div class="text-2xl font-black">CFX<span class="text-[10px] font-normal block -mt-2">FOUNDATION</span></div>
+                <div class="text-lg font-bold leading-tight text-center">COLISEU<br>DA SORTE</div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 lg:px-20 bg-slate-50" id="faq">
-        <div class="max-w-3xl mx-auto">
+    <!-- Stats Bar -->
+    <section class="py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-soft border border-gray-100 p-8 flex flex-col md:flex-row justify-between items-center gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                
+                <div class="flex items-center gap-4 w-full md:w-1/4 pt-4 md:pt-0 pl-0 md:pl-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-brand-purple shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-brand-dark">+250</div>
+                        <div class="text-xs text-brand-gray mt-1">Projetos entregues<br>com sucesso</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 w-full md:w-1/4 pt-4 md:pt-0 pl-0 md:pl-8">
+                    <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-brand-purple shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-brand-dark">+20M</div>
+                        <div class="text-xs text-brand-gray mt-1">Gerados para nossos<br>clientes</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 w-full md:w-1/4 pt-4 md:pt-0 pl-0 md:pl-8">
+                    <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-brand-purple shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-brand-dark">5</div>
+                        <div class="text-xs text-brand-gray mt-1">Países atendidos<br>(Brasil, EUA, Europa,<br>América Latina e Ásia)</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 w-full md:w-1/4 pt-4 md:pt-0 pl-0 md:pl-8">
+                    <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-brand-purple shrink-0">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/></svg>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-brand-dark">98%</div>
+                        <div class="text-xs text-brand-gray mt-1">Taxa de satisfação<br>dos nossos clientes</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+                <div class="lg:w-1/2">
+                    <p class="text-xs font-semibold text-brand-purple uppercase tracking-widest mb-3">O QUE FAZEMOS</p>
+                    <h2 class="text-4xl font-bold text-brand-dark leading-tight">
+                        Soluções completas <br/> para <span class="text-brand-purple">acelerar o seu crescimento.</span>
+                    </h2>
+                </div>
+                <div class="lg:w-1/3 text-brand-gray text-sm leading-relaxed">
+                    Estratégias personalizadas combinando marketing, tecnologia e automação para gerar resultados previsíveis e escaláveis.
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-float hover:border-brand-purple/30 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-purple mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Marketing de <br> Performance</h3>
+                    <p class="text-sm text-brand-gray mb-6">Campanhas que geram leads qualificados e vendas todos os dias.</p>
+                    <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-brand-purple group-hover:text-white transition">
+                        <span class="text-lg leading-none">→</span>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-float hover:border-brand-purple/30 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-purple mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Inteligência <br> Artificial</h3>
+                    <p class="text-sm text-brand-gray mb-6">Aplicamos IA para analisar, prever e automatizar resultados.</p>
+                    <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-brand-purple group-hover:text-white transition">
+                        <span class="text-lg leading-none">→</span>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-float hover:border-brand-purple/30 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-purple mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Automação & <br> Sistemas</h3>
+                    <p class="text-sm text-brand-gray mb-6">Criamos máquinas de vendas que trabalham 24h por dia.</p>
+                    <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-brand-purple group-hover:text-white transition">
+                        <span class="text-lg leading-none">→</span>
+                    </a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-float hover:border-brand-purple/30 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-purple mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Branding & <br> Posicionamento</h3>
+                    <p class="text-sm text-brand-gray mb-6">Marcas fortes geram conexão, autoridade e valor.</p>
+                    <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-brand-purple group-hover:text-white transition">
+                        <span class="text-lg leading-none">→</span>
+                    </a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-float hover:border-brand-purple/30 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-purple mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Desenvolvimento <br> Web & Apps</h3>
+                    <p class="text-sm text-brand-gray mb-6">Soluções digitais rápidas, escaláveis e focadas em conversão.</p>
+                    <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-brand-purple group-hover:text-white transition">
+                        <span class="text-lg leading-none">→</span>
+                    </a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-float hover:border-brand-purple/30 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-purple mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Consultoria & <br> Growth</h3>
+                    <p class="text-sm text-brand-gray mb-6">Estratégia, análise e aceleração para empresas ambiciosas.</p>
+                    <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-brand-purple group-hover:text-white transition">
+                        <span class="text-lg leading-none">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <!-- Text Left -->
+                <div class="lg:w-1/2">
+                    <p class="text-xs font-semibold text-brand-purple uppercase tracking-widest mb-3">INTELIGÊNCIA QUE GERA RESULTADOS</p>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-brand-dark leading-tight mb-6">
+                        IA que transforma <br/> dados em <span class="text-brand-purple">crescimento.</span>
+                    </h2>
+                    <p class="text-brand-gray text-base mb-8 leading-relaxed max-w-lg">
+                        Desenvolvemos agentes inteligentes, automações e sistemas que otimizam processos, reduzem custos e aumentam a lucratividade do seu negócio.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-light flex items-center justify-center text-brand-purple mt-0.5 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span class="text-brand-dark font-medium">Agentes de IA personalizados</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-light flex items-center justify-center text-brand-purple mt-0.5 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span class="text-brand-dark font-medium">Automação de processos e atendimento</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-light flex items-center justify-center text-brand-purple mt-0.5 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span class="text-brand-dark font-medium">Análise preditiva e tomada de decisão</span>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="inline-flex bg-brand-purple text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-purple-700 transition shadow-lg shadow-brand-purple/30">
+                        Conhecer nossas soluções de IA <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Dark Graphic Right -->
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-[#13151A] rounded-[2rem] p-8 md:p-16 relative overflow-hidden aspect-video md:aspect-square lg:aspect-auto h-[400px] flex items-center justify-center shadow-2xl">
+                        
+                        <!-- Grid Background Effect -->
+                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+
+                        <!-- Center Node -->
+                        <div class="relative z-10 w-24 h-24 bg-brand-purple rounded-3xl flex items-center justify-center shadow-[0_0_50px_rgba(108,43,217,0.6)] z-20">
+                            <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                            </svg>
+                        </div>
+
+                        <!-- Connecting Lines (CSS based) -->
+                        <div class="absolute top-1/2 left-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-brand-purple/50 to-transparent -translate-x-1/2 -translate-y-1/2 z-0"></div>
+                        <div class="absolute top-1/2 left-1/2 w-[1px] h-[70%] bg-gradient-to-b from-transparent via-brand-purple/50 to-transparent -translate-x-1/2 -translate-y-1/2 z-0"></div>
+
+                        <!-- Satellite Nodes -->
+                        <div class="absolute top-[15%] left-1/2 -translate-x-1/2 bg-[#1A1D24] border border-gray-800 text-gray-300 text-xs px-4 py-2 rounded-lg z-10 whitespace-nowrap">
+                            Análise de Dados <br> Inteligente
+                        </div>
+                        
+                        <div class="absolute bottom-[15%] left-1/2 -translate-x-1/2 bg-[#1A1D24] border border-gray-800 text-gray-300 text-xs px-4 py-2 rounded-lg z-10 whitespace-nowrap">
+                            Geração de Leads <br> Qualificados
+                        </div>
+
+                        <div class="absolute top-1/2 left-[10%] -translate-y-1/2 bg-[#1A1D24] border border-gray-800 text-gray-300 text-xs px-4 py-2 rounded-lg z-10 whitespace-nowrap">
+                            Automação de <br> Processos
+                        </div>
+
+                        <div class="absolute top-1/2 right-[10%] -translate-y-1/2 bg-[#1A1D24] border border-gray-800 text-gray-300 text-xs px-4 py-2 rounded-lg z-10 whitespace-nowrap">
+                            Atendimento <br> Inteligente
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-heading text-3xl lg:text-4xl text-dark font-black mb-2 tracking-tight">
-                    FAQ: Perguntas Frequentes
+                <p class="text-xs font-semibold text-brand-purple uppercase tracking-widest mb-3">RESULTADOS QUE FALAM POR SI</p>
+                <h2 class="text-4xl font-bold text-brand-dark">
+                    Cases que geram <span class="text-brand-purple">impacto real.</span>
                 </h2>
-                <h3 class="text-xl text-gray-500 font-medium">sobre Marketing Digital Estratégico</h3>
             </div>
 
-            <div class="flex flex-col gap-4 mb-12 faq-container">
-                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden" open>
-                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
-                        Quais empresas a ARKA atende?
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
-                            <i class="ph-bold ph-caret-down"></i>
-                        </span>
-                    </summary>
-                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
-                        Atendemos negócios locais e nacionais que buscam previsibilidade de vendas e crescimento estruturado. Não pegamos projetos sem viabilidade ou que prometem resultados irreais.
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Case 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="h-40 bg-slate-800 relative flex items-center justify-center overflow-hidden">
+                        <!-- Mock Background Image -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 opacity-80"></div>
+                        <span class="relative z-10 text-white font-bold text-2xl tracking-widest opacity-80">vfs GLOBAL</span>
                     </div>
-                </details>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-brand-dark mb-2">+185%</div>
+                        <p class="text-xs text-brand-gray">Aumento de leads qualificados<br>em 90 dias</p>
+                    </div>
+                </div>
 
-                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
-                        Quanto tempo leva pra ver resultado?
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
-                            <i class="ph-bold ph-caret-down"></i>
-                        </span>
-                    </summary>
-                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
-                        O tempo varia de acordo com o segmento, orçamento e nível de maturidade digital da empresa, mas geralmente os primeiros sinais de melhora na qualidade dos leads acontecem logo nas primeiras semanas de otimização.
+                <!-- Case 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="h-40 bg-slate-800 relative flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-black opacity-80"></div>
+                        <span class="relative z-10 text-white font-bold text-2xl tracking-widest opacity-90">KUMON</span>
                     </div>
-                </details>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-brand-dark mb-2">+142%</div>
+                        <p class="text-xs text-brand-gray">Crescimento de matrículas<br>através do digital</p>
+                    </div>
+                </div>
 
-                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
-                        A ARKA é uma agência de Sorocaba?
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
-                            <i class="ph-bold ph-caret-down"></i>
-                        </span>
-                    </summary>
-                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
-                        Nossa sede e raízes podem estar no interior de São Paulo, mas nossa operação e clientes estão espalhados por todo o Brasil. Atendemos com excelência independente da sua localização.
+                <!-- Case 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="h-40 bg-slate-800 relative flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 opacity-80"></div>
+                        <div class="relative z-10 flex flex-col items-center">
+                            <span class="text-white font-black text-xl tracking-wide opacity-90">CHAMPION</span>
+                            <span class="text-white text-[10px] tracking-[0.2em] opacity-70">USA</span>
+                        </div>
                     </div>
-                </details>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-brand-dark mb-2">+210%</div>
+                        <p class="text-xs text-brand-gray">Aumento de vendas com<br>estratégias de performance</p>
+                    </div>
+                </div>
 
-                <details class="group bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                    <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-dark hover:text-brand-blue transition-colors">
-                        A consulta estratégica é realmente gratuita?
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-blue bg-brand-bg p-2 rounded-full">
-                            <i class="ph-bold ph-caret-down"></i>
-                        </span>
-                    </summary>
-                    <div class="p-6 pt-0 text-gray-600 leading-relaxed">
-                        Sim. Acreditamos que antes de propor qualquer serviço, precisamos entender seu cenário. O primeiro papo é para diagnóstico e alinhamento, sem nenhum compromisso financeiro atrelado.
+                <!-- Case 4 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="h-40 bg-slate-800 relative flex items-center justify-center overflow-hidden text-center">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neutral-800 to-stone-900 opacity-80"></div>
+                        <span class="relative z-10 text-white font-bold text-lg leading-tight opacity-90">COLISEU<br>DA SORTE</span>
                     </div>
-                </details>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-brand-dark mb-2">+173%</div>
+                        <p class="text-xs text-brand-gray">Crescimento de faturamento<br>em campanhas online</p>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="text-center">
-                <a href="#" class="inline-flex items-center gap-2 text-brand-blue font-bold px-8 py-3 rounded-full hover:bg-brand-bg transition-colors">
-                    Falar com um especialista agora <i class="ph-bold ph-arrow-right"></i>
+            <div class="text-center mt-12">
+                <a href="#" class="text-brand-purple font-semibold hover:text-purple-700 transition inline-flex items-center">
+                    Ver todos os cases <span class="ml-1">→</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 lg:px-20 bg-mesh-footer text-center relative overflow-hidden border-t border-slate-800">
-        <div class="absolute left-1/4 top-1/4 opacity-20 float-anim">
-            <i class="ph-duotone ph-megaphone text-7xl text-brand-accent"></i>
-        </div>
-        <div class="absolute right-1/4 bottom-1/4 opacity-20 float-anim-delayed">
-            <i class="ph-duotone ph-rocket text-7xl text-brand-light"></i>
-        </div>
+    <!-- Global Presence Section -->
+    <section class="py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <div class="lg:w-1/3">
+                    <p class="text-xs font-semibold text-brand-purple uppercase tracking-widest mb-3">PRESENÇA GLOBAL</p>
+                    <h2 class="text-4xl font-bold text-brand-dark leading-tight mb-6">
+                        Conectamos marcas <br> a oportunidades <br> <span class="text-brand-purple">no mundo todo.</span>
+                    </h2>
+                    <p class="text-brand-gray text-sm mb-8 leading-relaxed">
+                        Atuamos no Brasil e nos Estados Unidos, atendendo empresas que buscam expansão, inovação e resultados em escala global.
+                    </p>
+                    
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🇧🇷</span>
+                            <span class="text-sm font-medium text-brand-dark">São Paulo, Brasil</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🇺🇸</span>
+                            <span class="text-sm font-medium text-brand-dark">Orlando, Flórida - EUA</span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="max-w-3xl mx-auto relative z-10">
-            <h2 class="font-heading text-4xl lg:text-5xl text-white mb-6 tracking-tight leading-tight">
-                Você pode continuar investindo no<br> escuro ou <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-light">começar a escalar com estratégia!</span>
-            </h2>
-            <p class="text-white/90 text-xl font-medium mb-4">A ARKA está pronta pra construir isso com você!</p>
-            <p class="text-slate-400 mb-12">A diferença entre um negócio estagnado e um<br> em crescimento está na execução.</p>
-            
-            <a href="#" class="inline-flex items-center gap-3 bg-brand-blue text-white font-bold px-10 py-5 rounded-full shadow-[0_0_40px_rgba(79,70,229,0.5)] hover:bg-brand-light hover:-translate-y-1 transition-all duration-300 text-lg">
-                Solicitar diagnóstico gratuito agora <i class="ph-bold ph-arrow-right"></i>
-            </a>
+                <div class="lg:w-2/3 w-full h-[300px] md:h-[400px] relative map-bg opacity-70">
+                    <!-- Dots representing locations -->
+                    <div class="absolute top-[60%] left-[30%] w-4 h-4 bg-brand-purple rounded-full shadow-[0_0_15px_rgba(108,43,217,0.8)] animate-pulse"></div>
+                    <div class="absolute top-[40%] left-[25%] w-3 h-3 bg-brand-purple/60 rounded-full"></div>
+                    
+                    <!-- Decorative subtle gradient over the dotted pattern to make it look like a map outline -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <footer class="bg-dark pt-20 pb-8 px-6 lg:px-20 text-slate-300">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-            <div>
-                <div class="flex flex-col mb-6">
-                    <div class="text-3xl font-black font-heading tracking-tighter leading-none">
-                        <span class="text-white">ARKA</span>
+    <!-- Footer CTA -->
+    <section class="py-10 pb-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-[#F5F3FF] to-white rounded-[2.5rem] p-10 md:p-16 border border-purple-100 flex flex-col md:flex-row items-center justify-between gap-10 shadow-sm relative overflow-hidden">
+                
+                <!-- Decorative Star bg -->
+                <svg class="absolute -bottom-10 -left-10 w-48 h-48 text-brand-purple opacity-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                </svg>
+
+                <div class="md:w-3/5 relative z-10">
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-5 h-5 text-brand-purple" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                        </svg>
+                        <p class="text-xs font-bold text-brand-purple uppercase tracking-widest">PRONTO PARA ESCALAR SEU NEGÓCIO?</p>
                     </div>
-                    <div class="text-[9px] text-brand-accent font-bold tracking-[0.2em] uppercase mt-1">Comunicação</div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-brand-dark leading-tight">
+                        Vamos construir o próximo <br> case de <span class="text-brand-purple">sucesso</span> juntos.
+                    </h2>
                 </div>
-                <h4 class="font-bold text-white mb-4">ARKA COMUNICAÇÃO ESTRATÉGICA</h4>
-                <p class="text-sm text-slate-400 mb-4">CNPJ: 62.415.222/0001-22</p>
-                <p class="text-xs text-slate-500 leading-relaxed max-w-xs">
-                    Marketing Digital | Agência de Performance | Tráfego Pago | SEO | Gestão de Redes
-                </p>
-            </div>
 
-            <div>
-                <h4 class="font-bold text-white mb-6 text-lg">Contato</h4>
-                <div class="flex flex-col gap-4 text-sm">
-                    <a href="#" class="flex items-center gap-3 hover:text-brand-accent transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                            <i class="ph-fill ph-whatsapp text-lg"></i>
-                        </div>
-                        WhatsApp: (xx) xxxx-xxxx
-                    </a>
-                    <a href="mailto:contato@arka.com.br" class="flex items-center gap-3 hover:text-brand-accent transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                            <i class="ph-fill ph-envelope-simple text-lg"></i>
-                        </div>
-                        contato@arka.com.br
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <h4 class="font-bold text-white mb-6 text-lg">Redes Sociais</h4>
-                <div class="flex gap-4">
-                    <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-blue transition-all hover:-translate-y-1">
-                        <i class="ph-fill ph-instagram-logo text-xl"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-blue transition-all hover:-translate-y-1">
-                        <i class="ph-fill ph-facebook-logo text-xl"></i>
+                <div class="md:w-2/5 flex flex-col items-start md:items-end text-left md:text-right relative z-10">
+                    <p class="text-brand-gray text-sm mb-6 max-w-xs">
+                        Fale com um especialista e descubra como a ARKA pode transformar seu negócio com estratégia, IA e automação.
+                    </p>
+                    <a href="#" class="bg-brand-purple text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-purple-700 transition shadow-lg shadow-brand-purple/30 inline-flex items-center">
+                        Agendar reunião estratégica <span class="ml-2">→</span>
                     </a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="max-w-6xl mx-auto border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-            <p>© 2026 ARKA Comunicação. Todos os direitos reservados.</p>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-white transition-colors">Termos de uso</a>
-                <a href="#" class="hover:text-white transition-colors">Política de privacidade</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Menu Mobile Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        function toggleMenu() {
-            if(mobileMenu.classList.contains('hidden')){
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => mobileMenu.classList.add('opacity-100'), 10);
-            } else {
-                mobileMenu.classList.remove('opacity-100');
-                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
-            }
-            document.body.classList.toggle('overflow-hidden');
-        }
-
-        menuBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-        
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
-
-        // FAQ Comportamento (Acordeão - fechar outros quando um abre)
-        const detailsElements = document.querySelectorAll('.faq-container details');
-        
-        detailsElements.forEach((targetDetail) => {
-            targetDetail.addEventListener('click', () => {
-                detailsElements.forEach((detail) => {
-                    if (detail !== targetDetail) {
-                        detail.removeAttribute('open');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
